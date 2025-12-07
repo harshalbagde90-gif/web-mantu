@@ -1,20 +1,42 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MagicSpotlight } from "@/components/MagicBento";
+import DotGrid from "@/components/DotGrid";
+import { useRef } from "react";
 
 export const HeroSection = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
       </div>
+      {/* Dot Grid Background */}
+      <DotGrid
+        className="absolute inset-0 pointer-events-none z-0"
+        dotSize={10}
+        gap={15}
+        baseColor="#5227FF"
+        activeColor="#5227FF"
+        proximity={120}
+        shockRadius={250}
+        shockStrength={5}
+        resistance={750}
+        returnDuration={1.5}
+      />
+      {/* Dark Gradient Overlay (above dots, below glow/text) */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[5]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.95) 100%)",
+        }}
+      />
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10" ref={heroRef}>
         <div className="max-w-4xl mx-auto text-center">
           <div className="opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             <span className="inline-block px-4 py-2 rounded-full glass text-sm text-primary font-medium mb-6">
@@ -93,6 +115,7 @@ export const HeroSection = () => {
             <ArrowDown size={16} className="animate-bounce" />
           </a>
         </div>
+        <MagicSpotlight gridRef={heroRef} spotlightRadius={400} glowColor="132, 0, 255" />
       </div>
     </section>
   );

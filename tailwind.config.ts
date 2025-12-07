@@ -100,6 +100,15 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        twinkle: {
+          "0%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: "0.4" },
+        },
+        ripple: {
+          "0%": { transform: "scale(0.8)", opacity: "0.6" },
+          "100%": { transform: "scale(4)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -112,6 +121,8 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "gradient-shift": "gradient-shift 3s ease infinite",
+        twinkle: "twinkle 2s ease-in-out infinite",
+        ripple: "ripple 0.6s ease-out",
       },
     },
   },

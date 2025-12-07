@@ -1,6 +1,9 @@
 import { useInView } from "@/hooks/useInView";
 import { Globe, Bot, Palette, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MagicParticleCard, MagicSpotlight } from "@/components/MagicBento";
+import { useRef } from "react";
+import MagicBento from "@/components/MagicBento";
 
 const services = [
   {
@@ -28,10 +31,11 @@ const services = [
 
 export const ServicesSection = () => {
   const { ref, isInView } = useInView();
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="services" className="py-24 relative" ref={ref}>
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6" ref={sectionRef}>
         <div
           className={`text-center max-w-2xl mx-auto mb-16 ${
             isInView ? "opacity-100 animate-fade-up" : "opacity-0"
@@ -48,17 +52,23 @@ export const ServicesSection = () => {
             businesses thrive in the digital age.
           </p>
         </div>
+        <MagicSpotlight gridRef={sectionRef} spotlightRadius={300} glowColor="132, 0, 255" />
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
-              key={service.title}
+            <MagicParticleCard
               className={`group relative ${
                 isInView ? "opacity-100 animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+              particleCount={12}
+              glowColor="132, 0, 255"
+              enableTilt
+              enableMagnetism
+              clickEffect
+              key={service.title}
             >
-              <div className="h-full p-8 rounded-2xl glass group-hover:glow transition-all duration-500 flex flex-col">
+              <div className="card h-full p-8 rounded-2xl glass group-hover:glow transition-all duration-500 flex flex-col">
                 {/* Icon */}
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="text-primary-foreground" size={32} />
@@ -100,7 +110,7 @@ export const ServicesSection = () => {
                   </a>
                 </Button>
               </div>
-            </div>
+            </MagicParticleCard>
           ))}
         </div>
       </div>
