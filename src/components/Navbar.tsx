@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
   { name: "Services", href: "#services" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
@@ -15,6 +14,8 @@ const navLinks = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,38 @@ export const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || window.pageYOffset;
+      const height = doc.scrollHeight - doc.clientHeight;
+      const p = height > 0 ? (scrollTop / height) * 100 : 0;
+      setScrollProgress(Math.min(100, Math.max(0, p)));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.substring(1));
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+    if (!sections.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = (entry.target as HTMLElement).id;
+          if (entry.isIntersecting) setActiveSection(id);
+        });
+      },
+      { threshold: 0.5, rootMargin: "0px 0px -50% 0px" }
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -92,62 +125,80 @@ export const Navbar = () => {
         scrolled ? "glass py-4" : "py-6"
       }`}
     >
+      <div
+        className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-primary via-purple-500 to-blue-500 transition-[width] duration-200"
+        style={{ width: `${scrollProgress}%` }}
+      />
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a
             href="#"
-            className="font-display text-2xl font-bold text-gradient nav-hover relative overflow-hidden"
+            className="nav-hover relative overflow-hidden inline-flex items-center"
           >
-            Harsh.
+            <img
+              src="/Logo/main logo.png"
+              alt="H.B Developer"
+              className={`h-10 md:h-12 w-auto object-contain select-none`}
+              draggable={false}
+            />
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium nav-hover relative overflow-hidden"
+                className="relative group px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors nav-hover font-sans"
+              >
+                <span className="relative z-10">{link.name}</span>
+                <span
+                  aria-hidden
+                  className={`pointer-events-none absolute inset-0 rounded-full border border-white/10 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 shadow-lg transition-all duration-300 ${activeSection === link.href.slice(1) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"} group-hover:opacity-100`}
+                />
+              </a>
+            ))}
+            <span className="gradient-shadow">
+              <Button
+                className="relative z-10 rounded-full px-5 py-2 font-sans font-semibold text-white bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 transition-all"
+              >
+                Let's Talk
+              </Button>
+            </span>
+          </div>
+
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-foreground p-2"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 glass border-t border-white/10 p-4 animate-fade-in">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="text-base font-medium text-foreground hover:text-primary transition-colors font-sans"
               >
                 {link.name}
               </a>
             ))}
-            <Button asChild className="glow-sm">
-              <a href="#contact" className="nav-hover relative overflow-hidden">Let's Talk</a>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden mt-4 pb-4 animate-fade-up">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <Button asChild className="w-fit">
-                <a href="#contact">Let's Talk</a>
+            <span className="gradient-shadow">
+              <Button className="relative z-10 w-full rounded-full px-5 py-2 font-sans font-semibold text-white bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 transition-all">
+                Let's Talk
               </Button>
-            </div>
+            </span>
           </div>
-        )}
-      </div>
-      <style>{`.nav-hover-circle{position:absolute;width:160px;height:160px;border-radius:9999px;background:radial-gradient(circle, rgba(59,130,246,0.25) 0%, rgba(59,130,246,0.12) 35%, transparent 60%);left:50%;top:50%;transform:translate(-50%,-50%);opacity:0;pointer-events:none;}`}</style>
+        </div>
+      )}
     </nav>
   );
 };

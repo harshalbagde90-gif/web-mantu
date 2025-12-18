@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagicSpotlight } from "@/components/MagicBento";
 import DotGrid from "@/components/DotGrid";
@@ -39,9 +39,12 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10" ref={heroRef}>
         <div className="max-w-4xl mx-auto text-center">
           <div className="opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            <span className="inline-block px-4 py-2 rounded-full glass text-sm text-primary font-medium mb-6">
-              ✨ Available for Freelance Projects
-            </span>
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass bg-card/70 backdrop-blur-md ring-1 ring-white/10 hover:ring-white/20 transition-all mb-6 hero-badge">
+              <Bot className="w-5 h-5 text-[#4ade80] animate-pulse" />
+              <span className="text-base md:text-lg font-poppins font-bold tracking-wide animate-gradient-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80]">
+                Available for Freelance Projects
+              </span>
+            </div>
           </div>
 
           <h1
@@ -57,64 +60,36 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-up"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-up font-sans font-normal"
             style={{ animationDelay: "0.3s" }}
           >
-            I'm Harsh A. Bagde, an AI-Powered Web Developer from Nagpur, India.
-            I create innovative web solutions that push the boundaries of what's possible.
+            AI-Powered Web Developer with 3+ Years of Experience — Crafting Intelligent Websites, Web Apps, UI/UX, and Seamless AI Integrations.
           </p>
 
           <div
             className="flex flex-wrap items-center justify-center gap-4 mb-12 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <Button size="lg" className="glow text-base" asChild>
+            <Button size="lg" className="glow-on-hover text-base font-sans font-semibold transition-all duration-300 hover:scale-105 hover:text-white" asChild>
               <a href="#projects">View Projects</a>
             </Button>
-            <Button size="lg" variant="outline" className="text-base" asChild>
-              <a href="#contact">Get in Touch</a>
-            </Button>
-          </div>
-
-          <div
-            className="flex items-center justify-center gap-6 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.5s" }}
-          >
+            
             <a
-              href="https://github.com/harshWebDesigner"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+              href="#contact"
+              className="group relative inline-flex h-11 items-center rounded-full border border-white/10 bg-white/5 pl-6 pr-14 transition-all duration-300 hover:bg-white/10 active:scale-95"
             >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://linkedin.com/in/harsh-bagde-63ab47285"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 hover:scale-110"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="mailto:business.harshbagde@gmail.com"
-              className="p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 hover:scale-110"
-            >
-              <Mail size={20} />
+              <span className="relative z-10 font-sans font-semibold text-foreground transition-colors duration-300 group-hover:text-black">
+                Get in Touch
+              </span>
+              <div className="absolute right-1.5 top-1.5 bottom-1.5 w-8 rounded-full bg-white transition-all duration-300 group-hover:w-[calc(100%-12px)] group-active:scale-95">
+                <div className="absolute right-0 top-0 bottom-0 flex w-8 items-center justify-center">
+                  <ArrowRight className="h-4 w-4 text-black transition-transform duration-300 group-hover:translate-x-0.5" />
+                </div>
+              </div>
             </a>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1s" }}>
-          <a
-            href="#about"
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <span className="text-xs">Scroll Down</span>
-            <ArrowDown size={16} className="animate-bounce" />
-          </a>
-        </div>
         <MagicSpotlight gridRef={heroRef} spotlightRadius={400} glowColor="132, 0, 255" />
       </div>
     </section>

@@ -3,7 +3,7 @@ import { Globe, Bot, Palette, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagicParticleCard, MagicSpotlight } from "@/components/MagicBento";
 import { useRef } from "react";
-import MagicBento from "@/components/MagicBento";
+// (MagicBento is not exported from @/components/MagicBento, so this import is removed)
 
 const services = [
   {
