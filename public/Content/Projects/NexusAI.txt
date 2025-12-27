@@ -1,0 +1,15 @@
+NexusAI Automation & Workflow Solutions
+
+Description
+An AI-powered automation platform designed to streamline business workflows, reduce manual effort, and improve operational efficiency through intelligent automation.
+
+Circular Tags
+Workflow Automation AI-Powered Process Optimization Cost Reduction Scalable Systems
+
+Tech Stack
+
+Built with React
+
+Styled using Tailwind CSS
+
+Developed in TypeScript

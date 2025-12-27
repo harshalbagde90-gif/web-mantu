@@ -20,6 +20,10 @@
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="" />
+    <script>
+      const size=200;const c=document.createElement("canvas");c.width=size;c.height=size;const x=c.getContext("2d");const l=document.getElementById("dynamic-favicon");l.setAttribute("sizes",size+"x"+size);const s=size/64;function draw(angle){x.clearRect(0,0,size,size);x.save();x.translate(size/2,size/2);x.rotate(angle);const color="#61DAFB";x.lineWidth=4.5*s;x.strokeStyle=color;for(const a of [0,Math.PI/3,-Math.PI/3]){x.save();x.rotate(a);x.beginPath();x.ellipse(0,0,24*s,10*s,0,0,Math.PI*2);x.shadowColor="rgba(97,218,251,0.35)";x.shadowBlur=10*s;x.stroke();x.restore()}x.beginPath();x.fillStyle=color;x.shadowColor="rgba(97,218,251,0.5)";x.shadowBlur=14*s;x.arc(0,0,7*s,0,Math.PI*2);x.fill();x.restore();l.href=c.toDataURL("image/png")}let state="idle",stateStart=0;const waitMs=5000,rotMs=5000;function loop(t){if(!stateStart)stateStart=t;const elapsed=t-stateStart;if(state==="idle"){draw(0);if(elapsed>=waitMs){state="rotate";stateStart=t}}else{const p=Math.min(elapsed/rotMs,1);const angle=p*Math.PI*2;draw(angle);if(elapsed>=rotMs){state="idle";stateStart=t}}requestAnimationFrame(loop)}draw(0);requestAnimationFrame(loop);
+    </script>
   </head>
 
   <body>

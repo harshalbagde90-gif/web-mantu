@@ -1,0 +1,15 @@
+Burn Fat Faster – Smart Weight Loss & Fat Burning Platform
+
+Description:
+Burn Fat Faster is a health-focused web application designed to educate users on effective and sustainable fat loss strategies through exercise, nutrition, and lifestyle optimization.
+
+Circular Tags:
+Weight Loss Fat Burning Healthy Lifestyle Fitness Guidance Sustainable Results
+
+Tech Stack:
+
+Built with React
+
+Styled using Tailwind CSS
+
+Developed in TypeScript

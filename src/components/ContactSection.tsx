@@ -1,9 +1,10 @@
 import { useInView } from "@/hooks/useInView";
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 
 export const ContactSection = () => {
@@ -12,56 +13,45 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    contact: "",
     message: "",
   });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    emailjs.init("Gbsxgx5a7dejoZsyf");
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent! ✨",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      setSending(true);
+      await emailjs.send(
+        "service_8z8wzsb",
+        "template_h24tt3m",
+        {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.contact,
+          message: formData.message,
+        }
+      );
+      toast({
+        title: "Message Sent",
+        description: "Thanks for reaching out. We'll reply soon.",
+      });
+      setFormData({ name: "", email: "", contact: "", message: "" });
+    } catch (err) {
+      toast({
+        title: "Failed to send",
+        description: "Please try again or use WhatsApp.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "business.harshbagde@gmail.com",
-      href: "mailto:business.harshbagde@gmail.com",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91-9309512837",
-      href: "tel:+919309512837",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Nagpur, India",
-      href: null,
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      href: "https://github.com/harshWebDesigner",
-      label: "GitHub",
-    },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com/in/harsh-bagde-63ab47285",
-      label: "LinkedIn",
-    },
-    {
-      icon: Mail,
-      href: "mailto:business.harshbagde@gmail.com",
-      label: "Email",
-    },
-  ];
+  
 
   return (
     <section id="contact" className="py-24 relative" ref={ref}>
@@ -80,68 +70,34 @@ export const ContactSection = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 mb-4">
             Let's <span className="text-gradient">Connect</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mb-8">
             Have a project in mind? I'd love to hear from you. Let's create
             something amazing together.
           </p>
+          <div className="flex justify-center">
+            <a
+              href="https://wa.me/919518771543"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95"
+              aria-label="WhatsApp Me"
+            >
+              <div className="relative w-16 h-16 md:w-20 md:h-20">
+                <img 
+                  src="/Logo/whatapp icon.png" 
+                  alt="WhatsApp" 
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+              </div>
+              <span className="text-lg font-medium text-[#25D366] opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                Let's Connect on WhatsApp
+              </span>
+            </a>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <div
-            className={`${
-              isInView ? "opacity-100 animate-slide-in-left" : "opacity-0"
-            }`}
-          >
-            <div className="space-y-6 mb-8">
-              {contactInfo.map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-4 p-4 rounded-xl glass group hover:glow-sm transition-all duration-300"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <item.icon className="text-primary-foreground" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground text-sm">{item.label}</p>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="font-medium hover:text-primary transition-colors"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="font-medium">{item.value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 rounded-xl glass hover:bg-primary/20 hover:scale-110 transition-all duration-300"
-                  aria-label={link.label}
-                >
-                  <link.icon size={24} />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div
-            className={`${
-              isInView ? "opacity-100 animate-slide-in-right" : "opacity-0"
-            }`}
-          >
+        <div className="max-w-2xl mx-auto">
+          <div className={`${isInView ? "opacity-100 animate-fade-up" : "opacity-0"}`}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Input
@@ -167,6 +123,18 @@ export const ContactSection = () => {
                 />
               </div>
               <div>
+                <Input
+                  type="tel"
+                  placeholder="Contact Number"
+                  value={formData.contact}
+                  onChange={(e) =>
+                    setFormData({ ...formData, contact: e.target.value })
+                  }
+                  required
+                  className="h-14 bg-card/50 border-border/50 focus:border-primary/50 transition-colors"
+                />
+              </div>
+              <div>
                 <Textarea
                   placeholder="Your Message"
                   value={formData.message}
@@ -178,9 +146,9 @@ export const ContactSection = () => {
                   className="bg-card/50 border-border/50 focus:border-primary/50 transition-colors resize-none"
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full glow">
+              <Button type="submit" size="lg" className="w-full glow glow-on-hover transform-gpu transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]" disabled={sending}>
                 <Send size={18} className="mr-2" />
-                Send Message
+                {sending ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>

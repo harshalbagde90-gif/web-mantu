@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MagicSpotlight } from "@/components/MagicBento";
 import DotGrid from "@/components/DotGrid";
 import { useRef } from "react";
+import { BlurText } from "@/components/ui/BlurText";
 
 export const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -48,27 +49,26 @@ export const HeroSection = () => {
           </div>
 
           <h1
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.2s" }}
+            className="font-display text-3xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            Building{" "}
-            <span className="text-gradient">Intelligent</span>
-            <br />
-            Web Experiences with
-            <br />
-            <span className="text-gradient">AI & Modern Frameworks</span>
+            <BlurText text="Building" delay={0.2} />{" "}
+            <BlurText text="Intelligent" textClassName="text-gradient" delay={0.4} />
+            <br className="hidden md:block" />
+            <BlurText text="Web Experiences with" delay={0.6} />{" "}
+            <br className="hidden md:block" />
+            <BlurText text="AI & Modern Frameworks" textClassName="text-gradient" delay={0.9} />
           </h1>
 
           <p
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-up font-sans font-normal"
-            style={{ animationDelay: "0.3s" }}
+            style={{ animationDelay: "1.2s" }}
           >
             AI-Powered Web Developer with 3+ Years of Experience — Crafting Intelligent Websites, Web Apps, UI/UX, and Seamless AI Integrations.
           </p>
 
           <div
             className="flex flex-wrap items-center justify-center gap-4 mb-12 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.4s" }}
+            style={{ animationDelay: "1.3s" }}
           >
             <Button size="lg" className="glow-on-hover text-base font-sans font-semibold transition-all duration-300 hover:scale-105 hover:text-white" asChild>
               <a href="#projects">View Projects</a>

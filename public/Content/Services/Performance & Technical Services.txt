@@ -1,0 +1,54 @@
+6. Website Speed Optimization
+
+Description:
+I optimize website loading speed by improving code structure, reducing asset size, and applying best performance practices for modern web standards.
+
+Benefit:
+Faster load times, better user experience, and improved search engine rankings.
+
+Tags:
+website speed optimization performance improvement fast loading website core web vitals web performance
+
+7. Mobile Optimization & Responsiveness
+
+Description:
+I ensure websites look and work perfectly across all screen sizes, including different mobile devices, tablets, and desktops.
+
+Benefit:
+Smooth and consistent experience on every device, with improved usability and accessibility.
+
+Tags:
+mobile optimization responsive website mobile friendly design cross device compatibility adaptive layout
+
+8. SEO-Friendly Website Structure
+
+Description:
+I build websites with clean structure, proper HTML semantics, optimized URLs, and best SEO practices from the foundation level.
+
+Benefit:
+Better visibility on search engines and stronger long-term organic growth.
+
+Tags:
+seo friendly website technical seo clean html structure search engine optimization web seo
+
+9. Code Cleanup & Refactoring
+
+Description:
+I refactor existing code to improve readability, maintainability, and performance without breaking functionality.
+
+Benefit:
+Cleaner codebase, easier future updates, and reduced technical issues.
+
+Tags:
+code refactoring clean code performance optimization maintainable code frontend cleanup
+
+10. Website Performance Audit
+
+Description:
+I analyze website performance, structure, and bottlenecks using modern tools and best practices.
+
+Benefit:
+Clear insights into issues and actionable improvements for better speed, stability, and quality.
+
+Tags:
+website audit performance analysis web optimization audit site health check technical review

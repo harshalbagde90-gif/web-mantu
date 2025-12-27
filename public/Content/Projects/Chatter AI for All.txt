@@ -1,0 +1,15 @@
+Chatter AI for All – Intelligent Chatbot Platform
+
+Description:
+Chatter AI for All is an AI-powered chatbot platform built to help businesses and individuals automate conversations, customer support, and lead generation using self-learning artificial intelligence.
+
+Circular Tags:
+AI Chatbot Customer Support Automation Lead Generation Multilingual AI Business Automation
+
+Tech Stack:
+
+Built with React
+
+Styled using Tailwind CSS
+
+Developed in TypeScript

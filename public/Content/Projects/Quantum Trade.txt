@@ -1,0 +1,15 @@
+Quantum Trade – AI-Powered Trading Platform (Demo Project)
+
+Description:
+Quantum Trade is a demo AI-powered trading platform designed to showcase automated trading concepts using AI-driven market analysis and real-time data processing.
+
+Circular Tags:
+AI Trading Automated Bots Market Analysis Trading Technology FinTech
+
+Tech Stack:
+
+Built with React
+
+Styled using Tailwind CSS
+
+Developed in TypeScript

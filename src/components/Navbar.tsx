@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { gsap } from "gsap";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,6 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -16,6 +16,41 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRatiosRef = useRef<Record<string, number>>({});
+  const navRef = useRef<HTMLElement | null>(null);
+  const [menuTop, setMenuTop] = useState(0);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const rect = navRef.current?.getBoundingClientRect();
+    setMenuTop(rect ? rect.bottom : 0);
+  }, [isOpen, scrolled]);
+
+  const handleNavClick = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const id = href.startsWith("#") ? href.slice(1) : "";
+    if (!id) return;
+    e.preventDefault();
+
+    setActiveSection(id);
+    setIsOpen(false);
+
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.pushState(null, "", href);
+    } else {
+      window.location.hash = href;
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,13 +83,27 @@ export const Navbar = () => {
       (entries) => {
         entries.forEach((entry) => {
           const id = (entry.target as HTMLElement).id;
-          if (entry.isIntersecting) setActiveSection(id);
+          sectionRatiosRef.current[id] = entry.isIntersecting ? entry.intersectionRatio : 0;
         });
+
+        const best = Object.entries(sectionRatiosRef.current)
+          .sort((a, b) => b[1] - a[1])[0];
+        if (best && best[1] > 0) setActiveSection(best[0]);
       },
-      { threshold: 0.5, rootMargin: "0px 0px -50% 0px" }
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: "0px 0px -50% 0px",
+      }
     );
     sections.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = hash.startsWith("#") ? hash.slice(1) : "";
+    if (id) setActiveSection(id);
   }, []);
 
   useEffect(() => {
@@ -121,6 +170,7 @@ export const Navbar = () => {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "glass py-4" : "py-6"
       }`}
@@ -132,8 +182,12 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a
-            href="#"
-            className="nav-hover relative overflow-hidden inline-flex items-center"
+            href="/"
+            className="nav-hover relative overflow-hidden inline-flex items-center transition-transform duration-300 ease-out hover:scale-[1.05] active:scale-[0.98]"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.assign("/");
+            }}
           >
             <img
               src="/Logo/main logo.png"
@@ -148,6 +202,7 @@ export const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={handleNavClick(link.href)}
                 className="relative group px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors nav-hover font-sans"
               >
                 <span className="relative z-10">{link.name}</span>
@@ -160,8 +215,9 @@ export const Navbar = () => {
             <span className="gradient-shadow">
               <Button
                 className="relative z-10 rounded-full px-5 py-2 font-sans font-semibold text-white bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 transition-all"
+                asChild
               >
-                Let's Talk
+                <a href="#contact" onClick={handleNavClick("#contact")}>Let's Talk</a>
               </Button>
             </span>
           </div>
@@ -178,27 +234,42 @@ export const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 glass border-t border-white/10 p-4 animate-fade-in">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-base font-medium text-foreground hover:text-primary transition-colors font-sans"
-              >
-                {link.name}
-              </a>
-            ))}
-            <span className="gradient-shadow">
-              <Button className="relative z-10 w-full rounded-full px-5 py-2 font-sans font-semibold text-white bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 transition-all">
-                Let's Talk
-              </Button>
-            </span>
-          </div>
-        </div>
-      )}
+      {isOpen &&
+        createPortal(
+          <>
+            <div
+              className="md:hidden fixed inset-0 z-[9998] bg-black/60 backdrop-blur-lg"
+              onClick={() => setIsOpen(false)}
+              aria-hidden
+            />
+            <div
+              className="md:hidden fixed left-0 right-0 z-[9999] glass border-t border-white/10 p-4 animate-fade-in"
+              style={{ top: menuTop }}
+            >
+              <div className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={handleNavClick(link.href)}
+                    className="text-base font-medium text-foreground hover:text-primary transition-colors font-sans"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <span className="gradient-shadow">
+                  <Button
+                    className="relative z-10 w-full rounded-full px-5 py-2 font-sans font-semibold text-white bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 transition-all"
+                    asChild
+                  >
+                    <a href="#contact" onClick={handleNavClick("#contact")}>Let's Talk</a>
+                  </Button>
+                </span>
+              </div>
+            </div>
+          </>,
+          document.body
+        )}
     </nav>
   );
 };

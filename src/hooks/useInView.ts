@@ -5,6 +5,13 @@ export const useInView = (threshold = 0.1) => {
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      if (isMobile) {
+        setIsInView(true);
+        return;
+      }
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
