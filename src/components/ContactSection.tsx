@@ -50,7 +50,7 @@ export const ContactSection = () => {
 
       // 2. Prepare WhatsApp URL
       const phoneNumber = "919518771543";
-      const waMessage = `Hello Web Mantu! 🚀%0A%0A*New Inquiry from Portfolio*%0A%0A👤 *Name:* ${formData.name}%0A📧 *Email:* ${formData.email}%0A📞 *Contact:* ${formData.contact}%0A💬 *Message:* ${formData.message}`;
+      const waMessage = `Hello Web Mantu! 🚀%0A%0AI just saw your portfolio and I am interested in your services.%0A%0A*Project Inquiry Details:*%0A👤 *Name:* ${formData.name}%0A📧 *Email:* ${formData.email}%0A📞 *Contact:* ${formData.contact}%0A💬 *Message:* ${formData.message}%0A%0ALooking forward to hearing from you!`;
       const url = `https://wa.me/${phoneNumber}?text=${waMessage}`;
       setWhatsappUrl(url);
 
