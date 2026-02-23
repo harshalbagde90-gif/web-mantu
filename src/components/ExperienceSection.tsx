@@ -4,11 +4,11 @@ import { Briefcase, GraduationCap } from "lucide-react";
 const experiences = [
   {
     type: "work",
-    title: "Freelance Web Developer",
-    company: "Self-Employed",
+    title: "Web Agency — Client Projects",
+    company: "Web Mantu",
     period: "2022 - Present",
     description: [
-      "Developed 20+ websites for clients across various industries",
+      "Delivered 20+ websites for clients across various industries",
       "Specialized in responsive and modern web applications",
       "Integrated AI capabilities into client projects",
       "Maintained 100% client satisfaction rate",
@@ -16,7 +16,7 @@ const experiences = [
   },
   {
     type: "work",
-    title: "Junior Developer",
+    title: "Frontend Development",
     company: "Tech Startup",
     period: "2021 - 2022",
     description: [
@@ -44,18 +44,17 @@ export const ExperienceSection = () => {
     <section id="experience" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         <div
-          className={`text-center max-w-2xl mx-auto mb-16 ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`text-center max-w-2xl mx-auto mb-16 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
         >
           <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            My Journey
+            Our Journey
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 mb-4">
             Experience & <span className="text-gradient">Education</span>
           </h2>
           <p className="text-muted-foreground">
-            A timeline of my professional growth and educational background.
+            A timeline of our professional growth and educational background.
           </p>
         </div>
 
@@ -68,16 +67,14 @@ export const ExperienceSection = () => {
             {experiences.map((exp, index) => (
               <div
                 key={`${exp.title}-${index}`}
-                className={`relative flex items-start gap-8 mb-12 ${
-                  isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-                }`}
+                className={`relative flex items-start gap-8 mb-12 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+                  }`}
                 style={{ animationDelay: `${0.2 + index * 0.15}s` }}
               >
                 {/* Timeline Node */}
                 <div
-                  className={`absolute left-0 md:left-1/2 w-12 h-12 rounded-full glass flex items-center justify-center transform -translate-x-1/2 glow-sm z-10 ${
-                    index % 2 === 0 ? "md:-translate-x-1/2" : "md:-translate-x-1/2"
-                  }`}
+                  className={`absolute left-0 md:left-1/2 w-12 h-12 rounded-full glass flex items-center justify-center transform -translate-x-1/2 glow-sm z-10 ${index % 2 === 0 ? "md:-translate-x-1/2" : "md:-translate-x-1/2"
+                    }`}
                 >
                   {exp.type === "work" ? (
                     <Briefcase className="text-primary" size={20} />
@@ -88,11 +85,10 @@ export const ExperienceSection = () => {
 
                 {/* Content Card */}
                 <div
-                  className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${
-                    index % 2 === 0
-                      ? "md:mr-auto md:pr-8 md:text-right"
-                      : "md:ml-auto md:pl-8"
-                  }`}
+                  className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0
+                    ? "md:mr-auto md:pr-8 md:text-right"
+                    : "md:ml-auto md:pl-8"
+                    }`}
                 >
                   <div className="p-6 rounded-2xl glass group hover:glow transition-all duration-300">
                     <span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary mb-3">
@@ -103,16 +99,14 @@ export const ExperienceSection = () => {
                     </h3>
                     <p className="text-primary/80 text-sm mb-4">{exp.company}</p>
                     <ul
-                      className={`space-y-2 ${
-                        index % 2 === 0 ? "md:text-right" : ""
-                      }`}
+                      className={`space-y-2 ${index % 2 === 0 ? "md:text-right" : ""
+                        }`}
                     >
                       {exp.description.map((item, i) => (
                         <li
                           key={i}
-                          className={`text-muted-foreground text-sm flex items-start gap-2 ${
-                            index % 2 === 0 ? "md:flex-row-reverse" : ""
-                          }`}
+                          className={`text-muted-foreground text-sm flex items-start gap-2 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+                            }`}
                         >
                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                           {item}

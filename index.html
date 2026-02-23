@@ -1,33 +1,196 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harsh A. Bagde | AI-Powered Web Developer</title>
-    <meta name="description" content="Building intelligent web experiences with AI & modern frameworks. Expert in React, Next.js, Node.js, and AI integration. Available for freelance projects." />
-    <meta name="keywords" content="web developer, AI developer, React developer, freelance, Harsh Bagde, Nagpur, India" />
-    <meta name="author" content="Harsh A. Bagde" />
 
-    <meta property="og:title" content="Harsh A. Bagde | AI-Powered Web Developer" />
-    <meta property="og:description" content="Building intelligent web experiences with AI & modern frameworks." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@harshWebDesigner" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <!-- Primary Meta Tags -->
+  <title>Web Mantu | AI-Powered Web Agency</title>
+  <meta name="description"
+    content="Web Mantu is an AI-Powered Web Agency specializing in custom websites, React development, UI/UX design, AI integration, and performance optimization. We build intelligent digital experiences." />
+  <meta name="keywords"
+    content="Web Mantu, web agency, AI web development, React agency, custom website, UI UX design, AI integration, web services, India, Nagpur" />
+  <meta name="author" content="Web Mantu" />
+  <meta name="robots" content="index, follow" />
 
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link id="dynamic-favicon" rel="icon" type="image/png" href="" />
-    <script>
-      const size=200;const c=document.createElement("canvas");c.width=size;c.height=size;const x=c.getContext("2d");const l=document.getElementById("dynamic-favicon");l.setAttribute("sizes",size+"x"+size);const s=size/64;function draw(angle){x.clearRect(0,0,size,size);x.save();x.translate(size/2,size/2);x.rotate(angle);const color="#61DAFB";x.lineWidth=4.5*s;x.strokeStyle=color;for(const a of [0,Math.PI/3,-Math.PI/3]){x.save();x.rotate(a);x.beginPath();x.ellipse(0,0,24*s,10*s,0,0,Math.PI*2);x.shadowColor="rgba(97,218,251,0.35)";x.shadowBlur=10*s;x.stroke();x.restore()}x.beginPath();x.fillStyle=color;x.shadowColor="rgba(97,218,251,0.5)";x.shadowBlur=14*s;x.arc(0,0,7*s,0,Math.PI*2);x.fill();x.restore();l.href=c.toDataURL("image/png")}let state="idle",stateStart=0;const waitMs=5000,rotMs=5000;function loop(t){if(!stateStart)stateStart=t;const elapsed=t-stateStart;if(state==="idle"){draw(0);if(elapsed>=waitMs){state="rotate";stateStart=t}}else{const p=Math.min(elapsed/rotMs,1);const angle=p*Math.PI*2;draw(angle);if(elapsed>=rotMs){state="idle";stateStart=t}}requestAnimationFrame(loop)}draw(0);requestAnimationFrame(loop);
-    </script>
-  </head>
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webmantu.com/" />
+  <meta property="og:title" content="Web Mantu | AI-Powered Web Agency" />
+  <meta property="og:description"
+    content="Web Mantu builds intelligent web experiences with AI & modern frameworks. Custom Websites, React Apps, UI/UX Design & AI Integration." />
+  <meta property="og:image" content="/Logo/Webaxis logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Web Mantu" />
+  <meta property="og:locale" content="en_IN" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@WebMantu" />
+  <meta name="twitter:title" content="Web Mantu | AI-Powered Web Agency" />
+  <meta name="twitter:description"
+    content="Web Mantu builds intelligent web experiences with AI & modern frameworks." />
+  <meta name="twitter:image" content="/Logo/Webaxis logo.png" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://webmantu.com/" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Favicon (Dynamic) -->
+  <link id="dynamic-favicon" rel="icon" type="image/png" href="" />
+  <script>
+    const size = 200; const c = document.createElement("canvas"); c.width = size; c.height = size; const x = c.getContext("2d"); const l = document.getElementById("dynamic-favicon"); l.setAttribute("sizes", size + "x" + size); const s = size / 64; function draw(angle) { x.clearRect(0, 0, size, size); x.save(); x.translate(size / 2, size / 2); x.rotate(angle); const color = "#61DAFB"; x.lineWidth = 4.5 * s; x.strokeStyle = color; for (const a of [0, Math.PI / 3, -Math.PI / 3]) { x.save(); x.rotate(a); x.beginPath(); x.ellipse(0, 0, 24 * s, 10 * s, 0, 0, Math.PI * 2); x.shadowColor = "rgba(97,218,251,0.35)"; x.shadowBlur = 10 * s; x.stroke(); x.restore() } x.beginPath(); x.fillStyle = color; x.shadowColor = "rgba(97,218,251,0.5)"; x.shadowBlur = 14 * s; x.arc(0, 0, 7 * s, 0, Math.PI * 2); x.fill(); x.restore(); l.href = c.toDataURL("image/png") } let state = "idle", stateStart = 0; const waitMs = 5000, rotMs = 5000; function loop(t) { if (!stateStart) stateStart = t; const elapsed = t - stateStart; if (state === "idle") { draw(0); if (elapsed >= waitMs) { state = "rotate"; stateStart = t } } else { const p = Math.min(elapsed / rotMs, 1); const angle = p * Math.PI * 2; draw(angle); if (elapsed >= rotMs) { state = "idle"; stateStart = t } } requestAnimationFrame(loop) } draw(0); requestAnimationFrame(loop);
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://webmantu.com/#organization",
+        "name": "Web Mantu",
+        "url": "https://webmantu.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://webmantu.com/Logo/Webaxis logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "description": "Web Mantu is an AI-Powered Web Agency specializing in custom websites, React development, UI/UX design, AI integration, and performance optimization.",
+        "foundingDate": "2022",
+        "areaServed": "IN",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Hindi"],
+          "url": "https://wa.me/919518771543"
+        },
+        "sameAs": [
+          "https://wa.me/919518771543"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Web Agency Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Website Development",
+                "description": "We build fully custom websites tailored to your business goals."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "React & Modern Frontend",
+                "description": "We develop modern, high-performance frontends using React."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Integration & Automation",
+                "description": "We integrate AI-powered features and automation workflows into web applications."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "UI/UX Design",
+                "description": "We design responsive, beautiful websites with a focus on user experience."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website Speed Optimization",
+                "description": "We optimize website loading speed and performance for better rankings."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://webmantu.com/#website",
+        "url": "https://webmantu.com",
+        "name": "Web Mantu",
+        "description": "AI-Powered Web Agency — Custom Websites, React Apps, UI/UX & AI Integration",
+        "publisher": {
+          "@id": "https://webmantu.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://webmantu.com/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://webmantu.com/#webpage",
+        "url": "https://webmantu.com",
+        "name": "Web Mantu | AI-Powered Web Agency",
+        "isPartOf": {
+          "@id": "https://webmantu.com/#website"
+        },
+        "about": {
+          "@id": "https://webmantu.com/#organization"
+        },
+        "description": "Web Mantu builds intelligent web experiences with AI & modern frameworks. Custom Websites, React Apps, UI/UX Design & AI Integration.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://webmantu.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://webmantu.com/#services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Projects",
+              "item": "https://webmantu.com/#projects"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Contact",
+              "item": "https://webmantu.com/#contact"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

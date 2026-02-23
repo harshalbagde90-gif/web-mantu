@@ -171,9 +171,8 @@ export const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass py-4" : "py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass py-4" : "py-6"
+        }`}
     >
       <div
         className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-primary via-purple-500 to-blue-500 transition-[width] duration-200"
@@ -190,9 +189,9 @@ export const Navbar = () => {
             }}
           >
             <img
-              src="/Logo/main logo.png"
-              alt="H.B Developer"
-              className={`h-10 md:h-12 w-auto object-contain select-none`}
+              src="/Logo/web mantu.png"
+              alt="Web Mantu"
+              className={`h-16 md:h-18 w-auto object-contain select-none`}
               draggable={false}
             />
           </a>

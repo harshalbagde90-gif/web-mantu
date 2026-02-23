@@ -1,5 +1,5 @@
 import { useInView } from "@/hooks/useInView";
-import { 
+import {
   Globe, Bot, Palette, ArrowRight, Code2, Atom, Smartphone, Layout, User,
   Gauge, Search, FileCode, Wrench, Activity, // For Performance
   Cpu, MessageSquare, Server, Database, Share2 // For Advanced
@@ -14,7 +14,7 @@ const webDevServices = [
     icon: Code2,
     title: "Custom Website Development",
     description:
-      "I build fully custom websites tailored to your business goals. Designed to be fast, scalable, and easy to maintain—helping you build trust and convert visitors.",
+      "We build fully custom websites tailored to your business goals. Designed to be fast, scalable, and easy to maintain—helping you build trust and convert visitors.",
     benefit: "You get a unique website that represents your brand professionally.",
     features: ["Custom Website", "Business Website", "React Development", "Scalable Architecture"],
   },
@@ -22,7 +22,7 @@ const webDevServices = [
     icon: Atom,
     title: "React & Modern Frontend",
     description:
-      "I develop modern, high-performance frontends using React. The focus is on clean UI, smooth interactions, and fast loading experiences.",
+      "We develop modern, high-performance frontends using React. The focus is on clean UI, smooth interactions, and fast loading experiences.",
     benefit: "Your website feels fast, modern, and reliable—improving user experience.",
     features: ["React Developer", "Frontend Development", "Modern Web Apps", "High Performance UI"],
   },
@@ -30,7 +30,7 @@ const webDevServices = [
     icon: Smartphone,
     title: "Responsive Web Design",
     description:
-      "I design responsive websites that look and function perfectly on all screens. With a strong focus on UI/UX, I ensure clear layouts and easy navigation.",
+      "We design responsive websites that look and function perfectly on all screens. With a strong focus on UI/UX, we ensure clear layouts and easy navigation.",
     benefit: "Visitors get a smooth, consistent experience on any device.",
     features: ["Responsive Design", "UI/UX Design", "Mobile Friendly", "User Experience"],
   },
@@ -38,7 +38,7 @@ const webDevServices = [
     icon: Layout,
     title: "Landing Page Design",
     description:
-      "I create high-converting landing pages optimized for speed and action. Designed to capture attention and drive results for your campaigns.",
+      "We create high-converting landing pages optimized for speed and action. Designed to capture attention and drive results for your campaigns.",
     benefit: "Get more leads and sales from pages built to convert.",
     features: ["Landing Page Design", "Conversion Focused", "Lead Generation", "Fast Loading"],
   },
@@ -46,7 +46,7 @@ const webDevServices = [
     icon: User,
     title: "Portfolio Websites",
     description:
-      "Clean, professional portfolio websites for freelancers and professionals. Highlight your skills and work while maintaining a strong personal brand.",
+      "Clean, professional portfolio websites for freelancers and professionals. We highlight your skills and work while maintaining a strong personal brand.",
     benefit: "Present yourself professionally and increase opportunities.",
     features: ["Portfolio Website", "Personal Website", "Freelancer Portfolio", "Online Presence"],
   },
@@ -57,7 +57,7 @@ const performanceServices = [
     icon: Gauge,
     title: "Website Speed Optimization",
     description:
-      "I optimize website loading speed by improving code structure, reducing asset size, and applying best performance practices for modern web standards.",
+      "We optimize website loading speed by improving code structure, reducing asset size, and applying best performance practices for modern web standards.",
     benefit: "Faster load times, better user experience, and improved search engine rankings.",
     features: ["Speed Optimization", "Core Web Vitals", "Fast Loading", "Web Performance"],
   },
@@ -65,7 +65,7 @@ const performanceServices = [
     icon: Smartphone,
     title: "Mobile Optimization",
     description:
-      "I ensure websites look and work perfectly across all screen sizes, including different mobile devices, tablets, and desktops.",
+      "We ensure websites look and work perfectly across all screen sizes, including different mobile devices, tablets, and desktops.",
     benefit: "Smooth and consistent experience on every device, with improved usability.",
     features: ["Mobile Optimization", "Responsive Website", "Mobile Friendly", "Cross Device"],
   },
@@ -73,7 +73,7 @@ const performanceServices = [
     icon: Search,
     title: "SEO-Friendly Structure",
     description:
-      "I build websites with clean structure, proper HTML semantics, optimized URLs, and best SEO practices from the foundation level.",
+      "We build websites with clean structure, proper HTML semantics, optimized URLs, and best SEO practices from the foundation level.",
     benefit: "Better visibility on search engines and stronger long-term organic growth.",
     features: ["SEO Friendly", "Technical SEO", "Clean HTML", "Search Engine Opt"],
   },
@@ -81,7 +81,7 @@ const performanceServices = [
     icon: FileCode,
     title: "Code Cleanup & Refactoring",
     description:
-      "I refactor existing code to improve readability, maintainability, and performance without breaking functionality.",
+      "We refactor existing code to improve readability, maintainability, and performance without breaking functionality.",
     benefit: "Cleaner codebase, easier future updates, and reduced technical issues.",
     features: ["Code Refactoring", "Clean Code", "Performance Opt", "Maintainable Code"],
   },
@@ -89,7 +89,7 @@ const performanceServices = [
     icon: Activity,
     title: "Website Performance Audit",
     description:
-      "I analyze website performance, structure, and bottlenecks using modern tools and best practices.",
+      "We analyze website performance, structure, and bottlenecks using modern tools and best practices.",
     benefit: "Clear insights into issues and actionable improvements for better speed and quality.",
     features: ["Website Audit", "Performance Analysis", "Web Optimization", "Technical Review"],
   },
@@ -100,7 +100,7 @@ const advancedServices = [
     icon: Cpu,
     title: "AI Integration & Automation",
     description:
-      "I integrate AI-powered features and automation workflows into web applications using modern AI tools and APIs.",
+      "We integrate AI-powered features and automation workflows into web applications using modern AI tools and APIs.",
     benefit: "Reduced manual work, improved efficiency, and smarter system behavior.",
     features: ["AI Integration", "Automation Workflows", "AI Powered Apps", "Intelligent Systems"],
   },
@@ -108,7 +108,7 @@ const advancedServices = [
     icon: MessageSquare,
     title: "Chatbot & AI Assistant",
     description:
-      "I set up custom chatbots and AI assistants for websites and platforms using conversational AI and automation logic.",
+      "We set up custom chatbots and AI assistants for websites and platforms using conversational AI and automation logic.",
     benefit: "24/7 automated interaction, faster responses, and improved user engagement.",
     features: ["AI Chatbot", "AI Assistant", "Chatbot Setup", "Automated Support"],
   },
@@ -116,7 +116,7 @@ const advancedServices = [
     icon: Server,
     title: "API Integration & Backend",
     description:
-      "I connect front-end applications with secure backend systems and third-party APIs to enable dynamic functionality.",
+      "We connect front-end applications with secure backend systems and third-party APIs to enable dynamic functionality.",
     benefit: "Seamless data flow, scalable architecture, and reliable system communication.",
     features: ["API Integration", "Backend Setup", "Node.js Backend", "REST API"],
   },
@@ -124,7 +124,7 @@ const advancedServices = [
     icon: Database,
     title: "CMS Integration",
     description:
-      "I integrate headless or custom CMS solutions with modern front-end frameworks for flexible content management.",
+      "We integrate headless or custom CMS solutions with modern front-end frameworks for flexible content management.",
     benefit: "Easy content updates, better performance, and full design freedom.",
     features: ["Headless CMS", "CMS Integration", "Content Management", "Custom CMS"],
   },
@@ -132,7 +132,7 @@ const advancedServices = [
     icon: Share2,
     title: "WhatsApp & 3rd Party",
     description:
-      "I integrate WhatsApp, payment gateways, CRMs, and other third-party tools into websites and applications.",
+      "We integrate WhatsApp, payment gateways, CRMs, and other third-party tools into websites and applications.",
     benefit: "Automated communication, streamlined workflows, and better system connectivity.",
     features: ["WhatsApp Integration", "Tool Integration", "CRM Integration", "Automation Tools"],
   },
@@ -146,9 +146,8 @@ export const ServicesSection = () => {
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map((service, index) => (
         <MagicParticleCard
-          className={`group relative ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`group relative ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
           style={{ animationDelay: `${0.2 + index * 0.15}s` }}
           particleCount={12}
           glowColor="132, 0, 255"
@@ -170,7 +169,7 @@ export const ServicesSection = () => {
             <p className="text-muted-foreground mb-3 text-sm">
               {service.description}
             </p>
-            
+
             {/* Benefit Highlight */}
             <div className="mb-4 p-2.5 rounded-lg bg-primary/5 border border-primary/10">
               <p className="text-xs text-primary font-medium">
@@ -216,18 +215,17 @@ export const ServicesSection = () => {
     <section id="services" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-4 md:px-6" ref={sectionRef}>
         <div
-          className={`text-center max-w-2xl mx-auto mb-16 ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`text-center max-w-2xl mx-auto mb-16 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
         >
           <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            What I Do
+            What We Do
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 mb-4">
             Services That <span className="text-gradient">Transform</span> Ideas
           </h2>
           <p className="text-muted-foreground">
-            From concept to deployment, I provide end-to-end solutions that help
+            From concept to deployment, we provide end-to-end solutions that help
             businesses thrive in the digital age.
           </p>
         </div>
@@ -235,9 +233,8 @@ export const ServicesSection = () => {
 
         {/* Web Development Services Sub-section */}
         <div
-          className={`text-center max-w-2xl mx-auto mb-12 ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`text-center max-w-2xl mx-auto mb-12 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
         >
           <h2 className="font-display text-2xl md:text-3xl font-bold mt-2 mb-4">
             WEB Development <span className="text-gradient">Services</span>
@@ -251,9 +248,8 @@ export const ServicesSection = () => {
 
         {/* Performance & Technical Services Sub-section */}
         <div
-          className={`text-center max-w-2xl mx-auto mb-12 mt-24 ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`text-center max-w-2xl mx-auto mb-12 mt-24 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
         >
           <h2 className="font-display text-2xl md:text-3xl font-bold mt-2 mb-4">
             Performance & Technical <span className="text-gradient">Services</span>
@@ -267,9 +263,8 @@ export const ServicesSection = () => {
 
         {/* Advanced Value-Added Services Sub-section */}
         <div
-          className={`text-center max-w-2xl mx-auto mb-12 mt-24 ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`text-center max-w-2xl mx-auto mb-12 mt-24 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
         >
           <h2 className="font-display text-2xl md:text-3xl font-bold mt-2 mb-4">
             Advanced <span className="text-gradient">Value-Added Services</span>

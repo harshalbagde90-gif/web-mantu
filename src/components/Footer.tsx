@@ -13,9 +13,9 @@ export const Footer = () => {
           {/* Logo */}
           <a href="#" className="inline-flex items-center transition-transform duration-300 ease-out hover:scale-[1.05] active:scale-[0.98]">
             <img
-              src="/Logo/main logo.png"
-              alt="Harsh A. Bagde"
-              className="h-10 md:h-12 w-auto object-contain select-none"
+              src="/Logo/web mantu.png"
+              alt="Web Mantu"
+              className="h-16 md:h-18 w-auto object-contain select-none"
               draggable={false}
             />
           </a>
@@ -37,10 +37,10 @@ export const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border/30 text-center">
           <p className="text-muted-foreground text-sm">
-            &copy; {new Date().getFullYear()} Harsh .A. Bagde
+            &copy; {new Date().getFullYear()} Web Mantu
           </p>
           <p className="text-muted-foreground text-sm">
-        💻Web Developer & AI Automation Specialist.
+            🚀 AI-Powered Web Agency — Building Intelligent Digital Experiences.
           </p>
         </div>
       </div>

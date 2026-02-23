@@ -1,11 +1,18 @@
 import { useInView } from "@/hooks/useInView";
-import { Phone, Send } from "lucide-react";
+import { Phone, Send, CheckCircle2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export const ContactSection = () => {
   const { ref, isInView } = useInView();
@@ -17,6 +24,8 @@ export const ContactSection = () => {
     message: "",
   });
   const [sending, setSending] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   useEffect(() => {
     emailjs.init("Gbsxgx5a7dejoZsyf");
@@ -26,8 +35,10 @@ export const ContactSection = () => {
     e.preventDefault();
     try {
       setSending(true);
+
+      // 1. Send Email via EmailJS (Updated Service ID: service_xcyct6w as per user request)
       await emailjs.send(
-        "service_8z8wzsb",
+        "service_xcyct6w",
         "template_h24tt3m",
         {
           name: formData.name,
@@ -36,22 +47,27 @@ export const ContactSection = () => {
           message: formData.message,
         }
       );
-      toast({
-        title: "Message Sent",
-        description: "Thanks for reaching out. We'll reply soon.",
-      });
+
+      // 2. Prepare WhatsApp URL
+      const phoneNumber = "919518771543";
+      const waMessage = `Hello Web Mantu! 🚀%0A%0A*New Inquiry from Portfolio*%0A%0A👤 *Name:* ${formData.name}%0A📧 *Email:* ${formData.email}%0A📞 *Contact:* ${formData.contact}%0A💬 *Message:* ${formData.message}`;
+      const url = `https://wa.me/${phoneNumber}?text=${waMessage}`;
+      setWhatsappUrl(url);
+
+      // 3. Show Lightbox (Success Modal)
+      setShowSuccessModal(true);
+
+      // 4. Clear Form
       setFormData({ name: "", email: "", contact: "", message: "" });
     } catch (err) {
       toast({
         title: "Failed to send",
-        description: "Please try again or use WhatsApp.",
+        description: "Please try again or use the WhatsApp icon directly.",
       });
     } finally {
       setSending(false);
     }
   };
-
-  
 
   return (
     <section id="contact" className="py-24 relative" ref={ref}>
@@ -60,9 +76,8 @@ export const ContactSection = () => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div
-          className={`text-center max-w-2xl mx-auto mb-16 ${
-            isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-          }`}
+          className={`text-center max-w-2xl mx-auto mb-16 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+            }`}
         >
           <span className="text-primary font-medium text-sm uppercase tracking-wider">
             Get in Touch
@@ -71,7 +86,7 @@ export const ContactSection = () => {
             Let's <span className="text-gradient">Connect</span>
           </h2>
           <p className="text-muted-foreground mb-8">
-            Have a project in mind? I'd love to hear from you. Let's create
+            Have a project in mind? We'd love to hear from you. Let's create
             something amazing together.
           </p>
           <div className="flex justify-center">
@@ -82,10 +97,10 @@ export const ContactSection = () => {
               className="group inline-flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95"
               aria-label="WhatsApp Me"
             >
-              <div className="relative w-16 h-16 md:w-20 md:h-20">
-                <img 
-                  src="/Logo/whatapp icon.png" 
-                  alt="WhatsApp" 
+              <div className="relative w-16 h-16 md:w-20 md:h-20 whatsapp-btn-pulse">
+                <img
+                  src="/Logo/whatapp icon.png"
+                  alt="WhatsApp"
                   className="w-full h-full object-contain drop-shadow-lg"
                 />
               </div>
@@ -154,6 +169,61 @@ export const ContactSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Thank You Lightbox (Success Modal) */}
+      <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+        <DialogContent className="sm:max-w-md glass border-white/10 text-center py-10 shadow-2xl overflow-hidden">
+          {/* Top Decorative Glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent opacity-50 blur-sm" />
+
+          <DialogHeader>
+            <div className="mx-auto w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mb-6 animate-pulse shadow-[0_0_30px_rgba(37,211,102,0.3)]">
+              <CheckCircle2 className="text-emerald-500 w-12 h-12" />
+            </div>
+            <DialogTitle className="text-3xl font-bold font-display text-white mb-2">
+              Thank You for Your Enquiry!
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground text-lg py-2 leading-relaxed">
+              We've received your request. To get a <span className="text-[#25D366] font-bold drop-shadow-[0_0_10px_rgba(37,211,102,0.5)]">Quick response</span>, let's chat on WhatsApp.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex flex-col gap-4 mt-8">
+            <div className="relative group">
+              {/* Multi-layered Glow Effect */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#25D366] via-[#4ade80] to-[#128C7E] rounded-full blur-md opacity-40 group-hover:opacity-100 transition duration-500 group-hover:duration-200"></div>
+              <div className="absolute -inset-1 bg-[#25D366] rounded-full blur-xl opacity-20 animate-pulse"></div>
+
+              <Button
+                size="lg"
+                className="relative w-full bg-[#25D366] hover:bg-[#20bd5c] text-white font-bold h-16 text-xl rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-[0_10px_20px_rgba(37,211,102,0.4)]"
+                onClick={() => {
+                  window.open(whatsappUrl, "_blank");
+                  setShowSuccessModal(false);
+                }}
+              >
+                <MessageSquare className="mr-3 w-6 h-6" />
+                Connect on WhatsApp
+              </Button>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 animate-fade-in py-2">
+              <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#25D366]/40" />
+              <p className="text-[#25D366] text-sm font-bold tracking-widest uppercase">
+                🚀 Quick response on WhatsApp
+              </p>
+              <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-[#25D366]/40" />
+            </div>
+
+            <button
+              onClick={() => setShowSuccessModal(false)}
+              className="mt-4 text-stone-500 hover:text-white transition-colors text-sm font-medium"
+            >
+              I'll wait for an email reply
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
