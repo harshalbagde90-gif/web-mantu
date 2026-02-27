@@ -157,11 +157,11 @@ const ImageCarousel = ({
       onMouseEnter={() => setAuto(true)}
       onClick={() => setAuto(true)}
     >
-      <div className="w-full aspect-[4/3] bg-black/20">
+      <div className="w-full aspect-[16/10] bg-black/20">
         <img
           src={images[index]}
           alt=""
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
           loading="lazy"
         />
       </div>

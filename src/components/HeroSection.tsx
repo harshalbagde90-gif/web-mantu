@@ -1,4 +1,4 @@
-import { ArrowRight, Bot } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagicSpotlight } from "@/components/MagicBento";
 import DotGrid from "@/components/DotGrid";
@@ -41,7 +41,63 @@ export const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass bg-card/70 backdrop-blur-md ring-1 ring-white/10 hover:ring-white/20 transition-all mb-6 hero-badge">
-              <img src="/Logo/web mantu.png" alt="Logo" className="w-6 h-6 object-contain animate-pulse" />
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                role="img"
+                aria-label="AI Bot"
+                className="shrink-0 animate-pulse"
+              >
+                <defs>
+                  <linearGradient id="bot-shell" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#f1f5f9" />
+                    <stop offset="1" stopColor="#cbd5e1" />
+                  </linearGradient>
+                  <linearGradient id="bot-visor" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#0b1730" />
+                    <stop offset="1" stopColor="#1d2b57" />
+                  </linearGradient>
+                  <linearGradient id="bot-eye" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="#67e8f9" />
+                    <stop offset="1" stopColor="#38bdf8" />
+                  </linearGradient>
+                  <linearGradient id="bot-accent" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#22d3ee" />
+                    <stop offset="0.55" stopColor="#60a5fa" />
+                    <stop offset="1" stopColor="#a855f7" />
+                  </linearGradient>
+                  <filter id="bot-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="1.25" result="b" />
+                    <feMerge>
+                      <feMergeNode in="b" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                {/* Bot head shell */}
+                <rect x="5" y="4" width="14" height="10" rx="4" fill="url(#bot-shell)" />
+                <rect x="5" y="4" width="14" height="10" rx="4" fill="url(#bot-accent)" opacity="0.12" filter="url(#bot-glow)" />
+
+                {/* Ears */}
+                <rect x="3.3" y="6" width="2.4" height="6" rx="1.2" fill="url(#bot-visor)" opacity="0.95" />
+                <rect x="18.3" y="6" width="2.4" height="6" rx="1.2" fill="url(#bot-visor)" opacity="0.95" />
+
+                {/* Visor */}
+                <rect x="6.3" y="5.6" width="11.4" height="6.6" rx="2.6" fill="url(#bot-visor)" />
+                <path d="M7.3 6.4h9.4c.7 0 1.3.6 1.3 1.3v.3c-1.7 1-4 1.5-6.6 1.5S6.5 9.1 5.3 8.2v-.4c0-.8.6-1.4 1.4-1.4z" fill="#60a5fa" opacity="0.12" />
+
+                {/* Eyes */}
+                <rect x="8.2" y="7.1" width="2.9" height="4.1" rx="1.45" fill="url(#bot-eye)" filter="url(#bot-glow)" />
+                <rect x="12.9" y="7.1" width="2.9" height="4.1" rx="1.45" fill="url(#bot-eye)" filter="url(#bot-glow)" />
+
+                {/* Body */}
+                <path d="M7.2 14.1c1.3 1 2.9 1.5 4.8 1.5s3.5-.5 4.8-1.5c.9.8 1.6 2 1.6 3.3 0 1.8-1.5 3.1-3.5 3.1H9.1c-2 0-3.5-1.3-3.5-3.1 0-1.3.7-2.5 1.6-3.3z" fill="url(#bot-shell)" />
+                <path d="M8.1 15.4c1.1.6 2.5.9 3.9.9 1.5 0 2.8-.3 3.9-.9.2.3.3.6.3.9 0 1.1-1.2 1.9-2.7 1.9h-3c-1.5 0-2.7-.8-2.7-1.9 0-.3.1-.6.3-.9z" fill="#0b1730" opacity="0.18" />
+
+                {/* Chest glow */}
+                <circle cx="12" cy="18.1" r="1.1" fill="url(#bot-accent)" filter="url(#bot-glow)" opacity="0.9" />
+              </svg>
               <span className="text-base md:text-lg font-poppins font-bold tracking-wide animate-gradient-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80]">
                 Open for New Projects
               </span>
