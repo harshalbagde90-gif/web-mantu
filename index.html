@@ -6,33 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary Meta Tags -->
-  <title>Web Mantu | AI-Powered Web Agency</title>
+  <title>WebMantu | AI Web Development, Automation & Digital Solutions Agency</title>
   <meta name="description"
-    content="Web Mantu is an AI-Powered Web Agency specializing in custom websites, React development, UI/UX design, AI integration, and performance optimization. We build intelligent digital experiences." />
+    content="WebMantu is a results-driven web agency offering AI-powered website development, automation, WhatsApp integration, chatbot solutions, and scalable digital systems. We help businesses grow with modern web and AI technologies." />
   <meta name="keywords"
-    content="Web Mantu, web agency, AI web development, React agency, custom website, UI UX design, AI integration, web services, India, Nagpur" />
-  <meta name="author" content="Web Mantu" />
+    content="WebMantu, web development agency, AI website development, automation services, WhatsApp automation, chatbot development, API integration, UI UX design, SaaS development, web app development, digital solutions, Nagpur web agency, India web services" />
+  <meta name="author" content="WebMantu" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webmantu.com/" />
-  <meta property="og:title" content="Web Mantu | AI-Powered Web Agency" />
+  <meta property="og:title" content="WebMantu | AI Web Development, Automation & Digital Solutions Agency" />
   <meta property="og:description"
-    content="Web Mantu builds intelligent web experiences with AI & modern frameworks. Custom Websites, React Apps, UI/UX Design & AI Integration." />
-  <meta property="og:image" content="/Logo/Webaxis logo.png" />
+    content="WebMantu is a results-driven web agency offering AI-powered website development, automation, WhatsApp integration, chatbot solutions, and scalable digital systems. We help businesses grow with modern web and AI technologies." />
+  <meta property="og:image" content="https://webmantu.com/Logo/Webaxis logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Web Mantu" />
+  <meta property="og:image:alt" content="WebMantu - AI Web Development & Digital Solutions Agency" />
+  <meta property="og:site_name" content="WebMantu" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@WebMantu" />
-  <meta name="twitter:title" content="Web Mantu | AI-Powered Web Agency" />
+  <meta name="twitter:creator" content="@WebMantu" />
+  <meta name="twitter:title" content="WebMantu | AI Web Development, Automation & Digital Solutions Agency" />
   <meta name="twitter:description"
-    content="Web Mantu builds intelligent web experiences with AI & modern frameworks." />
-  <meta name="twitter:image" content="/Logo/Webaxis logo.png" />
+    content="WebMantu is a results-driven web agency offering AI-powered website development, automation, WhatsApp integration, chatbot solutions, and scalable digital systems." />
+  <meta name="twitter:image" content="https://webmantu.com/Logo/Webaxis logo.png" />
+  <meta name="twitter:image:alt" content="WebMantu - AI Web Development & Digital Solutions Agency" />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://webmantu.com/" />
@@ -41,11 +44,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Favicon (Dynamic) -->
-  <link id="dynamic-favicon" rel="icon" type="image/png" href="" />
-  <script>
-    const size = 200; const c = document.createElement("canvas"); c.width = size; c.height = size; const x = c.getContext("2d"); const l = document.getElementById("dynamic-favicon"); l.setAttribute("sizes", size + "x" + size); const s = size / 64; function draw(angle) { x.clearRect(0, 0, size, size); x.save(); x.translate(size / 2, size / 2); x.rotate(angle); const color = "#61DAFB"; x.lineWidth = 4.5 * s; x.strokeStyle = color; for (const a of [0, Math.PI / 3, -Math.PI / 3]) { x.save(); x.rotate(a); x.beginPath(); x.ellipse(0, 0, 24 * s, 10 * s, 0, 0, Math.PI * 2); x.shadowColor = "rgba(97,218,251,0.35)"; x.shadowBlur = 10 * s; x.stroke(); x.restore() } x.beginPath(); x.fillStyle = color; x.shadowColor = "rgba(97,218,251,0.5)"; x.shadowBlur = 14 * s; x.arc(0, 0, 7 * s, 0, Math.PI * 2); x.fill(); x.restore(); l.href = c.toDataURL("image/png") } let state = "idle", stateStart = 0; const waitMs = 5000, rotMs = 5000; function loop(t) { if (!stateStart) stateStart = t; const elapsed = t - stateStart; if (state === "idle") { draw(0); if (elapsed >= waitMs) { state = "rotate"; stateStart = t } } else { const p = Math.min(elapsed / rotMs, 1); const angle = p * Math.PI * 2; draw(angle); if (elapsed >= rotMs) { state = "idle"; stateStart = t } } requestAnimationFrame(loop) } draw(0); requestAnimationFrame(loop);
-  </script>
+  <!-- Favicon — WebMantu Icon -->
+  <link rel="icon" type="image/png" href="/Logo/Url icon/Webmantu icon.png" />
+  <link rel="shortcut icon" type="image/png" href="/Logo/Url icon/Webmantu icon.png" />
+  <link rel="apple-touch-icon" href="/Logo/Url icon/Webmantu icon.png" />
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -55,7 +57,8 @@
       {
         "@type": "Organization",
         "@id": "https://webmantu.com/#organization",
-        "name": "Web Mantu",
+        "name": "WebMantu",
+        "alternateName": "Web Mantu",
         "url": "https://webmantu.com",
         "logo": {
           "@type": "ImageObject",
@@ -63,9 +66,16 @@
           "width": 512,
           "height": 512
         },
-        "description": "Web Mantu is an AI-Powered Web Agency specializing in custom websites, React development, UI/UX design, AI integration, and performance optimization.",
+        "description": "WebMantu is a results-driven web agency offering AI-powered website development, automation, WhatsApp integration, chatbot solutions, and scalable digital systems. We help businesses grow with modern web and AI technologies.",
         "foundingDate": "2022",
-        "areaServed": "IN",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "value": "3" },
+        "areaServed": ["IN", "Nagpur"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nagpur",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
@@ -77,22 +87,14 @@
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Web Agency Services",
+          "name": "WebMantu Digital Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Custom Website Development",
-                "description": "We build fully custom websites tailored to your business goals."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "React & Modern Frontend",
-                "description": "We develop modern, high-performance frontends using React."
+                "name": "AI-Powered Website Development",
+                "description": "We build fully custom, fast, and scalable websites tailored to your business goals using modern web technologies and AI."
               }
             },
             {
@@ -100,23 +102,63 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "AI Integration & Automation",
-                "description": "We integrate AI-powered features and automation workflows into web applications."
+                "description": "We integrate AI-powered features and automation workflows into web applications to reduce manual effort and improve efficiency."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "UI/UX Design",
-                "description": "We design responsive, beautiful websites with a focus on user experience."
+                "name": "WhatsApp Integration & Automation",
+                "description": "We integrate WhatsApp Business API, payment gateways, CRMs, and third-party tools for automated communication and workflows."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Website Speed Optimization",
-                "description": "We optimize website loading speed and performance for better rankings."
+                "name": "Chatbot & AI Assistant Development",
+                "description": "We build custom AI chatbots and assistants for websites to automate customer support and lead generation 24/7."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "React & Modern Frontend Development",
+                "description": "We develop high-performance frontends using React with clean UI, smooth interactions, and fast loading experiences."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "API Integration & Backend Setup",
+                "description": "We connect front-end applications with secure backend systems and third-party APIs for dynamic, scalable functionality."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "SaaS & Web App Development",
+                "description": "We design and build scalable SaaS platforms and web applications with modern architecture and user-centric interfaces."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "UI/UX Design & Responsive Web Design",
+                "description": "We design responsive, beautiful websites and landing pages focused on user experience and conversion optimization."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website Speed & Performance Optimization",
+                "description": "We optimize website loading speed, Core Web Vitals, and overall performance for better rankings and user experience."
               }
             }
           ]
@@ -126,8 +168,8 @@
         "@type": "WebSite",
         "@id": "https://webmantu.com/#website",
         "url": "https://webmantu.com",
-        "name": "Web Mantu",
-        "description": "AI-Powered Web Agency — Custom Websites, React Apps, UI/UX & AI Integration",
+        "name": "WebMantu",
+        "description": "AI Web Development, Automation & Digital Solutions Agency — Custom Websites, React Apps, Chatbots, WhatsApp Integration & AI Automation.",
         "publisher": {
           "@id": "https://webmantu.com/#organization"
         },
@@ -144,14 +186,14 @@
         "@type": "WebPage",
         "@id": "https://webmantu.com/#webpage",
         "url": "https://webmantu.com",
-        "name": "Web Mantu | AI-Powered Web Agency",
+        "name": "WebMantu | AI Web Development, Automation & Digital Solutions Agency",
         "isPartOf": {
           "@id": "https://webmantu.com/#website"
         },
         "about": {
           "@id": "https://webmantu.com/#organization"
         },
-        "description": "Web Mantu builds intelligent web experiences with AI & modern frameworks. Custom Websites, React Apps, UI/UX Design & AI Integration.",
+        "description": "WebMantu is a results-driven web agency offering AI-powered website development, automation, WhatsApp integration, chatbot solutions, and scalable digital systems.",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -176,6 +218,12 @@
             {
               "@type": "ListItem",
               "position": 4,
+              "name": "Experience",
+              "item": "https://webmantu.com/#experience"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
               "name": "Contact",
               "item": "https://webmantu.com/#contact"
             }

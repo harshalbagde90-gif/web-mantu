@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+# WebMantu — AI Web Development, Automation & Digital Solutions Agency
 
-## Project info
+> **WebMantu** is a results-driven web agency offering AI-powered website development, automation, WhatsApp integration, chatbot solutions, and scalable digital systems.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🌐 **Live Site**: [https://webmantu.com](https://webmantu.com)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 About WebMantu
 
-**Use Lovable**
+WebMantu is an AI-Powered Web Agency with **3+ Years of Experience**. We craft Intelligent Websites, Web Apps, UI/UX, and Seamless AI Integrations that help businesses grow with modern web and AI technologies.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+📍 Based in **Nagpur, Maharashtra, India**
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Services We Offer
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Service | Description |
+|---------|-------------|
+| 🌐 AI-Powered Website Development | Custom, fast & scalable websites built with AI |
+| 🤖 AI Integration & Automation | Automate workflows with AI tools & APIs |
+| 💬 WhatsApp Integration | WhatsApp Business API, CRM & payment tools |
+| 🤖 Chatbot & AI Assistant | 24/7 automated customer support bots |
+| ⚛️ React & Modern Frontend | High-performance frontends with React |
+| 🔗 API Integration & Backend | Secure backend systems & third-party APIs |
+| 📦 SaaS & Web App Development | Scalable SaaS platforms & web applications |
+| 🎨 UI/UX Design | Responsive, beautiful & conversion-focused design |
+| ⚡ Website Speed Optimization | Core Web Vitals & performance improvements |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🏗️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend**: React, TypeScript, Tailwind CSS, Vite
+- **UI Components**: Radix UI, shadcn/ui
+- **Forms**: React Hook Form, Zod
+- **Animations**: GSAP, CSS Animations
+- **Email**: EmailJS
+- **Routing**: React Router DOM
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 💻 Local Development
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+ai-portfolio-crafted/
+├── public/
+│   ├── Logo/              # Brand logos & favicon
+│   ├── Images/            # Project images
+│   ├── sitemap.xml        # SEO sitemap
+│   └── robots.txt         # Crawler instructions
+├── src/
+│   ├── components/        # React components
+│   ├── hooks/             # Custom hooks
+│   └── index.css          # Global styles
+└── index.html             # Main HTML with meta tags & SEO
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📞 Contact
 
-This project is built with:
+- 🌐 Website: [webmantu.com](https://webmantu.com)
+- 💬 WhatsApp: [+91 95187 71543](https://wa.me/919518771543)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2024 WebMantu. All Rights Reserved.
