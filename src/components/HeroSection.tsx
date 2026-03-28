@@ -129,7 +129,7 @@ export const HeroSection = () => {
             style={{ animationDelay: "1.3s" }}
           >
             <Button size="lg" className="glow-on-hover text-base font-sans font-semibold transition-all duration-300 hover:scale-105 hover:text-white" asChild>
-              <a href="#contact">Get a Free Consultation</a>
+              <a href="#contact">Get Free Website Plan</a>
             </Button>
 
             <a
