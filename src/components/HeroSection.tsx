@@ -107,19 +107,21 @@ export const HeroSection = () => {
           <h1
             className="font-display text-3xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <BlurText text="We Build" delay={0.2} />{" "}
-            <BlurText text="Intelligent" textClassName="text-gradient" delay={0.4} />
+            <BlurText text="Turn Your" delay={0.2} />{" "}
+            <BlurText text="Website" textClassName="text-gradient" delay={0.35} />{" "}
+            <BlurText text="Into a" delay={0.5} />
             <br className="hidden md:block" />
-            <BlurText text="Web Experiences with" delay={0.6} />{" "}
+            <BlurText text="Lead Generation Engine" delay={0.6} />
             <br className="hidden md:block" />
-            <BlurText text="AI & Modern Tech" textClassName="text-gradient" delay={0.9} />
+            <BlurText text="with " delay={0.9} />
+            <BlurText text="AI & Modern Tech" textClassName="text-gradient" delay={1.1} />
           </h1>
 
           <p
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-up font-sans font-normal"
             style={{ animationDelay: "1.2s" }}
           >
-            Web Mantu — An AI-Powered Web Agency with 3+ Years of Experience. We craft Intelligent Websites, Web Apps, UI/UX, and Seamless AI Integrations.
+            We help businesses attract the right audience, automate repetitive tasks, and convert visitors into qualified leads with AI-driven systems.
           </p>
 
           <div
@@ -127,15 +129,15 @@ export const HeroSection = () => {
             style={{ animationDelay: "1.3s" }}
           >
             <Button size="lg" className="glow-on-hover text-base font-sans font-semibold transition-all duration-300 hover:scale-105 hover:text-white" asChild>
-              <a href="#projects">Our Work</a>
+              <a href="#contact">Get a Free Consultation</a>
             </Button>
 
             <a
-              href="#contact"
+              href="#projects"
               className="group relative inline-flex h-11 items-center rounded-full border border-white/10 bg-white/5 pl-6 pr-14 transition-all duration-300 hover:bg-white/10 active:scale-95"
             >
               <span className="relative z-10 font-sans font-semibold text-foreground transition-colors duration-300 group-hover:text-black">
-                Start a Project
+                See Our Work
               </span>
               <div className="absolute right-1.5 top-1.5 bottom-1.5 w-8 rounded-full bg-white transition-all duration-300 group-hover:w-[calc(100%-12px)] group-active:scale-95">
                 <div className="absolute right-0 top-0 bottom-0 flex w-8 items-center justify-center">
@@ -151,3 +153,4 @@ export const HeroSection = () => {
     </section>
   );
 };
+
