@@ -1,8 +1,9 @@
+import { ProductionShowcase } from "@/components/ProductionShowcase";
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
-import { demoProjects, liveProjects } from "@/components/ProjectsSection";
+import { demoProjects } from "@/components/ProjectsSection";
 import { FolderGit2, ChevronLeft, ChevronRight, ExternalLink, MessageSquare, Sparkles, Target, Zap, Search, Handshake, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -317,21 +318,17 @@ const BlueprintsPage = () => {
 
 
         {/* CONTENT SECTION */}
-        <section className="container mx-auto px-4 md:px-6 pt-24">
+        <section className="container mx-auto px-4 md:px-6 pt-10 md:pt-24">
           <div className="mb-32">
             <div className="text-center mb-12">
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-white">
+              <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 text-white">
                 Production Platforms
               </h2>
-              <p className="text-[#B9B1A4] text-lg max-w-3xl mx-auto font-sans leading-relaxed">
-                Fully developed, live digital ecosystems engineered for massive scale. These platforms integrate advanced SEO, localized lead-generation funnels, and seamless performance to drive compounding ROI for our clients.
+              <p className="text-[#B9B1A4] text-sm md:text-lg max-w-3xl mx-auto font-sans leading-relaxed">
+                Explore our live projects—the businesses, the solutions, and the work behind them.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {liveProjects.map(project => (
-                <HomeStyleCard key={project.title} project={project} />
-              ))}
-            </div>
+            <ProductionShowcase />
           </div>
 
           <div className="mb-32">
@@ -339,8 +336,8 @@ const BlueprintsPage = () => {
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] bg-clip-text text-transparent">Concept Blueprints</span>
               </h2>
-              <p className="text-[#B9B1A4] text-lg max-w-3xl mx-auto font-sans leading-relaxed">
-                High-fidelity UI/UX architectures and functional prototypes. We design these blueprints to visualize your product's potential, dominate your local market visually, and perfect the user journey before investing in full-scale development.
+              <p className="text-[#B9B1A4] text-sm sm:text-base max-w-xl mx-auto font-sans leading-relaxed">
+                Explore our demo websites and prototypes. Want something similar? We can build it for your business.
               </p>
             </div>
             
@@ -396,7 +393,7 @@ const BlueprintsPage = () => {
               <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-white">
                 From Concept to <span className="bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] bg-clip-text text-transparent">Launch</span>
               </h2>
-              <p className="text-[#B9B1A4] text-lg max-w-3xl mx-auto font-sans leading-relaxed">
+              <p className="text-[#B9B1A4] text-sm md:text-lg max-w-3xl mx-auto font-sans leading-relaxed">
                 Our battle-tested 5-phase workflow transforms raw ideas into revenue-generating digital platforms. Every phase is designed for speed, clarity, and zero guesswork.
               </p>
             </div>
@@ -431,7 +428,7 @@ const BlueprintsPage = () => {
               <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-white">
                 Built With <span className="bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] bg-clip-text text-transparent">Industry-Leading Tools</span>
               </h2>
-              <p className="text-[#B9B1A4] text-lg max-w-3xl mx-auto font-sans leading-relaxed">
+              <p className="text-[#B9B1A4] text-sm md:text-lg max-w-3xl mx-auto font-sans leading-relaxed">
                 We leverage the same frameworks and infrastructure trusted by top-tier startups and Fortune 500 companies — ensuring your platform is fast, secure, and future-proof.
               </p>
             </div>
@@ -511,3 +508,4 @@ const BlueprintsPage = () => {
 };
 
 export default BlueprintsPage;
+

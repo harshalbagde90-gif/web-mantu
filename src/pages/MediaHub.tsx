@@ -11,11 +11,7 @@ import {
 } from "@/components/ui/accordion";
 
 const SHORTS_AND_REELS = [
-  {
-    id: "yt-1",
-    type: "youtube",
-    url: "https://www.youtube.com/embed/7qTjPWSmKBM",
-  },
+  { id: "yt-latest", type: "youtube", url: "https://www.youtube.com/embed/5mrnU19-6xw" },
   {
     id: "yt-2",
     type: "youtube",
@@ -53,11 +49,6 @@ const MediaHub = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "url": "https://www.youtube.com/shorts/7qTjPWSmKBM"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
               "url": "https://www.youtube.com/shorts/GjJqT3dQfck"
             }
           ]
@@ -141,6 +132,8 @@ const MediaHub = () => {
               {SHORTS_AND_REELS.map((item) => (
                 <div key={item.id} className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-[#16120E] border border-white/10 hover:border-[#D4A43A]/50 transition-colors duration-500 shadow-xl group">
                   <iframe
+                    title={item.type === "youtube" ? "WebMantu YouTube video" : "WebMantu Instagram reel"}
+                    loading="lazy"
                     src={item.url}
                     className="w-full h-full border-none absolute inset-0 bg-black/50"
                     allow="autoplay; encrypted-media; picture-in-picture"
@@ -220,3 +213,5 @@ const MediaHub = () => {
 };
 
 export default MediaHub;
+
+

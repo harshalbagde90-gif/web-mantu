@@ -30,7 +30,7 @@ export const ContactSection = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState("");
 
-  const isTyping = formData.name !== "" || formData.email !== "" || formData.contact !== "" || formData.message !== "";
+
 
   useEffect(() => {
     emailjs.init("Gbsxgx5a7dejoZsyf");
@@ -108,10 +108,10 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-[#0B0B0C]" ref={ref}>
+    <section id="contact" className="py-12 md:py-20 relative bg-[#0B0B0C]" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div
-          className={`text-center max-w-2xl mx-auto mb-16 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
+          className={`text-center max-w-2xl mx-auto mb-8 md:mb-12 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
             }`}
         >
           <span className="text-[#D4A43A] font-medium font-display text-sm uppercase tracking-[0.14em]">
@@ -120,7 +120,7 @@ export const ContactSection = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 mb-4 text-white">
             Let's <span className="bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] bg-clip-text text-transparent">Connect</span>
           </h2>
-          <p className="text-[#B9B1A4] font-sans text-lg mb-8">
+          <p className="text-[#B9B1A4] font-sans text-base mb-4">
             Have a project in mind? We'd love to hear from you. Let's create
             something amazing together.
           </p>
@@ -152,105 +152,48 @@ export const ContactSection = () => {
               {/* Elegant Border Sweep Effect (Hover) */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] aspect-square bg-[conic-gradient(from_0deg,transparent_0_340deg,#D4A43A_360deg)] animate-border-spin opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
-              <form onSubmit={handleSubmit} className="bg-[#FDFBF7] p-8 md:p-12 rounded-[calc(1.5rem-1px)] border-2 border-[#D9D2C7] hover:border-[#C9BEAE] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1 ease-out hover:shadow-[0_20px_40px_-15px_rgba(212,164,58,0.2)] relative overflow-hidden h-full w-full z-10">
-                {Object.keys(errors).length > 0 && (
-                  <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-medium">
-                    Please fill out all required fields correctly to proceed.
-                  </div>
-                )}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Left Column */}
-                <div className="space-y-6 flex flex-col">
-                  <div className="relative z-10 group">
-                    <Input
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className={`h-14 bg-white border ${errors.name ? 'border-red-400 focus:border-red-500 focus:shadow-[0_0_15px_rgba(239,68,68,0.15)]' : 'border-[#EAE3D9] focus:border-[#D4A43A] hover:border-[#D4A43A]/50 focus:shadow-[0_0_15px_rgba(212,164,58,0.15)]'} text-[#16120E] placeholder:text-[#A3988E] focus:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300 rounded-xl px-5 font-sans`}
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-1">{errors.name}</p>}
-                  </div>
-                  <div className="relative z-10 group">
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`h-14 bg-white border ${errors.email ? 'border-red-400 focus:border-red-500 focus:shadow-[0_0_15px_rgba(239,68,68,0.15)]' : 'border-[#EAE3D9] focus:border-[#D4A43A] hover:border-[#D4A43A]/50 focus:shadow-[0_0_15px_rgba(212,164,58,0.15)]'} text-[#16120E] placeholder:text-[#A3988E] focus:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300 rounded-xl px-5 font-sans`}
-                    />
-                    {errors.email && <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-1">{errors.email}</p>}
-                  </div>
-                  <div className="relative z-10 group">
-                    <div className="flex gap-2">
-                      <select 
-                        name="countryCode"
-                        value={formData.countryCode}
-                        onChange={handleInputChange}
-                        className="h-14 w-28 bg-white border border-[#EAE3D9] text-[#16120E] focus:border-[#D4A43A] hover:border-[#D4A43A]/50 outline-none transition-all duration-300 rounded-xl px-2 font-sans cursor-pointer"
-                      >
-                        <option value="+91">🇮🇳 +91</option>
-                        <option value="+1">🇺🇸 +1</option>
-                        <option value="+44">🇬🇧 +44</option>
-                        <option value="+61">🇦🇺 +61</option>
-                        <option value="+971">🇦🇪 +971</option>
-                        <option value="other">🌍 Other</option>
-                      </select>
-                      {formData.countryCode === "other" && (
-                        <Input 
-                          type="text"
-                          name="customCountryCode"
-                          value={formData.customCountryCode}
-                          onChange={handleInputChange}
-                          placeholder="+00"
-                          className={`h-14 w-20 bg-white border ${errors.customCountryCode ? 'border-red-400 focus:border-red-500' : 'border-[#EAE3D9] focus:border-[#D4A43A]'} text-[#16120E] focus:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl px-2`}
-                        />
-                      )}
-                      <Input
-                        type="tel"
-                        name="contact"
-                        placeholder="Contact Number"
-                        value={formData.contact}
-                        onChange={handleInputChange}
-                        className={`flex-1 h-14 bg-white border ${errors.contact ? 'border-red-400 focus:border-red-500 focus:shadow-[0_0_15px_rgba(239,68,68,0.15)]' : 'border-[#EAE3D9] focus:border-[#D4A43A] hover:border-[#D4A43A]/50 focus:shadow-[0_0_15px_rgba(212,164,58,0.15)]'} text-[#16120E] placeholder:text-[#A3988E] focus:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300 rounded-xl px-4 font-sans`}
-                      />
+              <form onSubmit={handleSubmit} noValidate className="relative rounded-3xl border border-[#D4A43A]/25 bg-[#12100D] p-5 sm:p-8 md:p-10 text-[#F5F2EA]">
+                <div className="mb-6 border-b border-[#D4A43A]/15 pb-6">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#D4A43A]">Your next chapter starts here</p>
+                  <h3 className="font-display text-2xl font-bold md:text-3xl">Tell us about your project.</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#B9B1A4]">Share what you have in mind. We’ll help you plan the next step.</p>
+                </div>
+                {Object.values(errors).some(Boolean) && <p role="alert" className="mb-5 rounded-lg border border-red-400/30 bg-red-400/10 p-3 text-sm text-red-300">Please check the highlighted fields below.</p>}
+                <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+                  <div className="space-y-5">
+                    <div>
+                      <label htmlFor="enquiry-name" className="mb-2 block text-sm font-medium">Full name <span className="text-[#D4A43A]">*</span></label>
+                      <Input id="enquiry-name" name="name" autoComplete="name" required value={formData.name} onChange={handleInputChange} placeholder="Your full name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'enquiry-name-error' : undefined} className="h-12 rounded-xl border-[#3A3023] bg-[#090909] px-4 text-base text-[#F5F2EA] placeholder:text-[#82796B] focus-visible:ring-[#D4A43A]/60" />
+                      {errors.name && <p id="enquiry-name-error" className="mt-1 text-xs text-red-300">{errors.name}</p>}
                     </div>
-                    {errors.contact && <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-1">{errors.contact}</p>}
-                    {errors.customCountryCode && <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-1">{errors.customCountryCode}</p>}
+                    <div>
+                      <label htmlFor="enquiry-email" className="mb-2 block text-sm font-medium">Email address <span className="text-[#D4A43A]">*</span></label>
+                      <Input id="enquiry-email" type="email" name="email" autoComplete="email" required value={formData.email} onChange={handleInputChange} placeholder="you@company.com" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'enquiry-email-error' : undefined} className="h-12 rounded-xl border-[#3A3023] bg-[#090909] px-4 text-base text-[#F5F2EA] placeholder:text-[#82796B] focus-visible:ring-[#D4A43A]/60" />
+                      {errors.email && <p id="enquiry-email-error" className="mt-1 text-xs text-red-300">{errors.email}</p>}
+                    </div>
+                    <div>
+                      <label htmlFor="enquiry-phone" className="mb-2 block text-sm font-medium">Phone number <span className="text-[#D4A43A]">*</span></label>
+                      <div className="flex min-w-0 gap-2">
+                        <select name="countryCode" aria-label="Country calling code" value={formData.countryCode} onChange={handleInputChange} className="h-12 w-24 shrink-0 rounded-xl border border-[#3A3023] bg-[#090909] px-2 text-base text-[#F5F2EA] focus:outline-none focus:ring-2 focus:ring-[#D4A43A]/60">
+                          <option value="+91">IN +91</option><option value="+1">US +1</option><option value="+44">UK +44</option><option value="+61">AU +61</option><option value="+971">AE +971</option><option value="other">Other</option>
+                        </select>
+                        <Input id="enquiry-phone" type="tel" inputMode="tel" autoComplete="tel-national" name="contact" required value={formData.contact} onChange={handleInputChange} placeholder="Phone number" aria-invalid={!!errors.contact} aria-describedby={errors.contact ? 'enquiry-phone-error' : undefined} className="h-12 min-w-0 flex-1 rounded-xl border-[#3A3023] bg-[#090909] px-3 text-base text-[#F5F2EA] placeholder:text-[#82796B] focus-visible:ring-[#D4A43A]/60" />
+                      </div>
+                      {formData.countryCode === 'other' && <div className="mt-3"><label htmlFor="enquiry-code" className="mb-1 block text-xs text-[#B9B1A4]">Country calling code</label><Input id="enquiry-code" type="tel" name="customCountryCode" value={formData.customCountryCode} onChange={handleInputChange} placeholder="e.g. +49" aria-invalid={!!errors.customCountryCode} className="h-12 w-full rounded-xl border-[#3A3023] bg-[#090909] text-base text-[#F5F2EA]" />{errors.customCountryCode && <p className="mt-1 text-xs text-red-300">{errors.customCountryCode}</p>}</div>}
+                      {errors.contact && <p id="enquiry-phone-error" className="mt-1 text-xs text-red-300">{errors.contact}</p>}
+                    </div>
+                  </div>
+                  <div className="flex min-w-0 flex-col">
+                    <label htmlFor="enquiry-message" className="mb-2 block text-sm font-medium">Project details <span className="text-[#D4A43A]">*</span></label>
+                    <Textarea id="enquiry-message" name="message" required value={formData.message} onChange={handleInputChange} placeholder="What does your business do, and what would you like us to build or improve?" aria-invalid={!!errors.message} aria-describedby={errors.message ? 'enquiry-message-error' : undefined} className="min-h-[140px] flex-1 resize-y rounded-xl border-[#3A3023] bg-[#090909] px-4 py-3 text-base leading-7 text-[#F5F2EA] placeholder:text-[#82796B] focus-visible:ring-[#D4A43A]/60 md:min-h-[240px]" />
+                    {errors.message && <p id="enquiry-message-error" className="mt-1 text-xs text-red-300">{errors.message}</p>}
                   </div>
                 </div>
-
-                {/* Right Column */}
-                <div className="relative z-10 group h-full pt-4 md:pt-0">
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className={`h-[180px] md:h-full bg-white border ${errors.message ? 'border-red-400 focus:border-red-500 focus:shadow-[0_0_15px_rgba(239,68,68,0.15)]' : 'border-[#EAE3D9] focus:border-[#D4A43A] hover:border-[#D4A43A]/50 focus:shadow-[0_0_15px_rgba(212,164,58,0.15)]'} text-[#16120E] placeholder:text-[#A3988E] focus:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300 rounded-xl px-5 py-4 resize-none font-sans`}
-                  />
-                  {errors.message && <p className="text-red-500 text-xs mt-1 absolute -bottom-4 left-1">{errors.message}</p>}
+                <div className="mt-6 border-t border-[#D4A43A]/15 pt-6">
+                  <Button type="submit" disabled={sending} className="h-12 w-full gap-2 rounded-xl bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] px-4 text-sm font-semibold text-[#16120E] hover:brightness-110 sm:text-base"><Send size={17} />{sending ? 'Sending your enquiry…' : 'Get a Free Consultation'}</Button>
+                  <p className="mt-3 text-center text-xs leading-5 text-[#B9B1A4]">We’ll use your details to respond to your enquiry. <a href="/privacy-policy" className="text-[#E7C46A] underline underline-offset-2">Privacy policy</a></p>
                 </div>
-
-                {/* Submit Button */}
-                <div className="md:col-span-2 mt-4 md:mt-2">
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className={`w-full h-14 rounded-xl text-lg font-bold font-sans transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(212,164,58,0.2)] border-0 relative z-10 ${
-                      isTyping 
-                        ? "btn-shimmer-gold" 
-                        : "bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] text-[#16120E] hover:from-[#E7C46A] hover:to-[#D4A43A]"
-                    }`} 
-                    disabled={sending}
-                  >
-                    <Send size={20} className="mr-2" />
-                    {sending ? "Sending..." : "Get Free Consultation"}
-                  </Button>
-                </div>
-              </div>
-            </form>
+              </form>
             </div>
           </div>
         </div>
@@ -296,3 +239,4 @@ export const ContactSection = () => {
     </section>
   );
 };
+

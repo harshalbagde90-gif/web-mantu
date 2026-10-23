@@ -16,7 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Support from "./pages/Support";
 import MediaHub from "./pages/MediaHub";
-import { Chatbot } from "@/components/Chatbot";
+import { ContactWidgets } from "@/components/ContactWidgets";
 
 const queryClient = new QueryClient();
 
@@ -42,7 +42,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          {/* <Chatbot /> */}
+          <ContactWidgets />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
@@ -51,4 +51,5 @@ const App = () => (
 
 
 export default App;
+
 
