@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight, Monitor, Video, Share2, MapPin, Images, Link2, Mail, FileText, Languages, CreditCard, CalendarClock } from "lucide-react";
 import { liveProjects } from "@/components/ProjectsSection";
 
@@ -41,6 +41,7 @@ const showcaseProjects = [
 ];
 
 export function ProductionShowcase() {
+  const showcaseRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [image, setImage] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -49,10 +50,18 @@ export function ProductionShowcase() {
   const move = (direction: number) => {
     setActive((value) => (value + direction + stories.length) % stories.length);
     setImage(0);
+    {
+      requestAnimationFrame(() => {
+        const target = showcaseRef.current?.closest("section") ?? showcaseRef.current;
+        if (!target) return;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: Math.max(0, target.getBoundingClientRect().top + window.scrollY - 112), behavior: reduced ? "auto" : "smooth" });
+      });
+    }
   };
 
   return (
-    <div className="mx-auto max-w-6xl">
+    <div ref={showcaseRef} className="mx-auto max-w-6xl">
 <article aria-label={`${story.name} project showcase`} className="overflow-hidden rounded-3xl border border-[#D4A43A]/25 bg-[#0F0C09]">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#2A221A] px-4 py-3 md:px-10 md:py-4">
           <span className="text-xs font-semibold tracking-[0.16em] text-[#D4A43A]">FEATURED PROJECT</span>
@@ -138,6 +147,8 @@ export function ProductionShowcase() {
     </div>
   );
 }
+
+
 
 
 

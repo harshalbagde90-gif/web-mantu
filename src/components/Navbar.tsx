@@ -17,7 +17,7 @@ export const navLinks = [
       { name: "SEO & Growth", href: "/services/seo-growth" }
     ]
   },
-  { name: "Case Studies", href: "/case-studies" },
+  { name: "Our Work", href: "/case-studies" },
   { name: "Media Hub", href: "/media-hub" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
@@ -358,3 +358,4 @@ export const Navbar = () => {
     </nav>
   );
 };
+

@@ -34,7 +34,7 @@ export const TrustSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left: Image Placeholder / Visual */}
-          <div className={`relative h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-[#2A221A] bg-[#0F0C09] shadow-[0_0_50px_rgba(0,0,0,0.5)] ${isInView ? "animate-fade-in opacity-100" : "opacity-0"}`}>
+          <div className={`hidden md:block relative h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-[#2A221A] bg-[#0F0C09] shadow-[0_0_50px_rgba(0,0,0,0.5)] ${isInView ? "animate-fade-in opacity-100" : "opacity-0"}`}>
             <img 
               src={trustImage} 
               alt="WebMantu Digital Growth" 
@@ -86,3 +86,4 @@ export const TrustSection = () => {
     </section>
   );
 };
+
