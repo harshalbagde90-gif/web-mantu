@@ -1,0 +1,27 @@
+WebMantu: Website Chatbot Setup Checklist
+
+1. Decide what the bot should handle
+List the five questions your team answers most often. Start with service information, opening hours and how to request a quote. Define what the bot should hand to a person, including complaints, unusual requests and anything it cannot verify.
+
+2. Prepare the answers
+Create a small knowledge base with approved service descriptions, contact details and policies. Give each answer an owner and a review date. If pricing depends on scope, explain how to get a quote rather than guessing.
+
+3. Map the conversation
+- Welcome: “What can we help you with?”
+- Clarify: Ask one question at a time.
+- Answer: Use the approved information and provide a relevant next step.
+- Handoff: If unsure, say so and offer your contact form or another staffed channel.
+
+4. Route enquiries
+Collect only the details your team needs to respond. Explain who receives them and avoid asking for passwords, payment details or other sensitive information. Test that a real enquiry reaches the right inbox or CRM owner.
+
+5. Test before launch
+- Ask a common question, a vague question and a question with no approved answer.
+- Try the chat on a small phone and with a keyboard.
+- Check that the fallback channel works if the bot fails.
+- Check that staff can take over and correct outdated information.
+
+6. Review after launch
+Track unanswered questions and successful handoffs. Use them to update the knowledge base. A chat session is not the same as a qualified lead or sale.
+
+Want help building the workflow? https://webmantu.com/services/ai-automation

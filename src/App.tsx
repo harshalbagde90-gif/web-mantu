@@ -16,6 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Support from "./pages/Support";
 import MediaHub from "./pages/MediaHub";
+import CodeCenter from "./pages/CodeCenter";
 import { ContactWidgets } from "@/components/ContactWidgets";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/case-studies" element={<BlueprintsPage />} />
             <Route path="/media-hub" element={<MediaHub />} />
+            <Route path="/code" element={<CodeCenter />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/support" element={<Support />} />

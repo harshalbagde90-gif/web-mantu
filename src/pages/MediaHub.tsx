@@ -120,6 +120,7 @@ const MediaHub = () => {
             <p className="text-lg text-gray-300 font-body max-w-2xl mx-auto">
               Bite-sized digital marketing strategies, AI insights, and behind-the-scenes agency content delivered straight to your screen.
             </p>
+            <a href="/code" className="mt-5 inline-flex min-h-11 items-center rounded-xl border border-[#D4A43A]/40 px-4 font-semibold text-[#E7C46A] hover:bg-[#D4A43A]/10">Have a code? Get your resource</a>
           </div>
 
           {/* Shorts & Reels Section */}

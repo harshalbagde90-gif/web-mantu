@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { gsap } from "gsap";
-import { Menu, X } from "lucide-react";
+import { KeyRound, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -19,6 +19,7 @@ export const navLinks = [
   },
   { name: "Our Work", href: "/case-studies" },
   { name: "Media Hub", href: "/media-hub" },
+  { name: "Code Center", href: "/code" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
   { name: "Support", href: "/support" },
@@ -233,7 +234,7 @@ export const Navbar = () => {
             />
           </a>
 
-          <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
+          <div className="hidden xl:flex items-center gap-1 2xl:gap-4">
             {navLinks.map((link) => {
               const sectionId = link.href.startsWith("/#") ? link.href.slice(2) : "";
               return (
@@ -285,19 +286,15 @@ export const Navbar = () => {
             </span>
           </div>
 
-          <div className="md:hidden flex items-center gap-6">
+          <div className="xl:hidden flex shrink-0 items-center gap-2 sm:gap-4">
             <a
-              href="https://wa.me/917499147597?text=Hello%20WebMantu!%20%F0%9F%9A%80%20I%20just%20visited%20your%20website%20and%20I%27m%20interested%20in%20discussing%20a%20project%20with%20you."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative w-11 h-11 mr-1 whatsapp-btn-pulse transition-transform duration-300 hover:scale-110"
-              aria-label="Connect on WhatsApp"
+              href="/code"
+              onClick={handleNavClick("/code")}
+              aria-current={isLinkActive("/code") ? "page" : undefined}
+              className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-[#D4A43A]/35 bg-[#16120E] px-2.5 text-xs font-poppins font-semibold text-[#E7C46A] hover:bg-[#252015] focus-visible:outline focus-visible:outline-[#E7C46A] sm:px-4 sm:text-sm"
             >
-              <img 
-                src="/Logo/whatapp icon.png" 
-                alt="WhatsApp" 
-                className="w-full h-full object-contain drop-shadow-md" 
-              />
+              <KeyRound size={15} aria-hidden="true" />
+              Code Center
             </a>
 
             <button
@@ -320,12 +317,12 @@ export const Navbar = () => {
         createPortal(
           <>
             <div
-              className="md:hidden fixed inset-0 z-[9998] bg-black/60 backdrop-blur-md animate-fade-in"
+              className="xl:hidden fixed inset-0 z-[9998] bg-black/60 backdrop-blur-md animate-fade-in"
               onClick={() => setIsOpen(false)}
               aria-hidden
             />
             <div
-              className="md:hidden fixed left-0 right-0 z-[9999] glass border-b border-white/10 shadow-2xl rounded-b-3xl overflow-hidden animate-fade-up"
+              className="xl:hidden fixed left-0 right-0 z-[9999] glass border-b border-white/10 shadow-2xl rounded-b-3xl max-h-[calc(100dvh-6rem)] overflow-y-auto animate-fade-up"
               style={{ top: menuTop }}
             >
               <div className="flex flex-col gap-2 border-x border-b border-[#2A221A] bg-[#0F0C09]/95 p-6 backdrop-blur-xl">
