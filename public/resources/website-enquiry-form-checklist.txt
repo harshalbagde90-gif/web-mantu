@@ -1,0 +1,18 @@
+WebMantu: Website Enquiry Form Checklist
+
+1. Keep fields short
+Ask for name, one contact method and a brief description. Mark required fields clearly. Add other fields only if they change how you respond.
+
+2. Check the mobile experience
+Open the form on a phone. Check labels, keyboard types and tap targets. Try an empty submission and a mistyped email. Error messages should tell users what to fix.
+
+3. Confirm successful submission
+Show a clear confirmation after the server accepts the enquiry. State when the visitor can expect a reply. If delivery fails, show a retry message.
+
+4. Verify routing
+Send a test enquiry with dummy details. Confirm it reaches the right inbox or CRM and that the assigned person gets notified.
+
+5. Run a final end-to-end test
+Submit once on mobile and once on desktop. Check the confirmation, the received message and the reply address. Remove the test entries after checking.
+
+Need help fixing your website enquiry flow? Visit https://www.webmantu.com/services/website-development

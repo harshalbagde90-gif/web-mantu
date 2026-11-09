@@ -13,4 +13,10 @@ export const codeResources: Readonly<Record<string, CodeResource>> = {
     file: "/resources/chatbot-setup-checklist.txt",
     format: ".txt",
   },
+  "1043": {
+    title: "Website Enquiry Form Checklist",
+    description: "Check your form fields, confirmation message and enquiry delivery before you launch.",
+    file: "/resources/website-enquiry-form-checklist.txt",
+    format: ".txt",
+  },
 };
