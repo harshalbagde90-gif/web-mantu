@@ -7,6 +7,12 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1044": {
+    title: "ChatGPT Brand Voice Starter Guide",
+    description: "Build a clear writing brief, use your own examples, and refine social post drafts with reusable prompts.",
+    file: "/resources/chatgpt-brand-voice-starter-guide.txt",
+    format: ".txt",
+  },
   "1042": {
     title: "Website Chatbot Setup Checklist",
     description: "Plan your chatbot’s answers, enquiry routing and human handoff, then test the workflow before launch.",
