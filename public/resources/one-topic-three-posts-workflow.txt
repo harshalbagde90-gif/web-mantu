@@ -1,0 +1,48 @@
+ONE BUSINESS TOPIC, THREE SOCIAL POSTS
+WebMantu Digital | Beginner workflow | Reviewed 12 November 2026
+
+WHAT YOU WILL MAKE
+Turn one topic into a teaching post, a checklist and a service post. Each post answers a different reader question. This example uses a fictional bakery.
+
+WHAT YOU NEED
+A topic, three facts you can verify, a notes app, and images or text you have permission to use. You can draft by hand. If you choose ChatGPT, use an account that can access chat; no paid AI feature is needed for these text prompts. Buffer scheduling requires an account and a connected channel. Buffer’s free plan allows up to 10 scheduled posts per channel at a time; check available slots and current plan terms before choosing a date.
+
+1. WRITE THE BRIEF
+Pick one reader, one question and three confirmed facts. Note what the reader should do next.
+Example reader: a small office team.
+Question: what should we send when asking for a lunch quote?
+Confirmed facts for this example: the bakery needs the date, headcount and dietary needs. Availability and price must be confirmed by the bakery.
+
+2. DRAFT THREE DIFFERENT ANSWERS
+Teaching post: explain why those three details let the bakery check availability and quote accurately.
+Checklist: save the date, count attendees and collect dietary needs before asking for a quote.
+Service post: invite office organisers to send the three details and say what happens next. Example: “Send your date, headcount and dietary needs. We’ll confirm availability before quoting.”
+
+COPYABLE DRAFT PROMPT
+Draft three short social posts for [reader] about [question]. Use only these confirmed facts: [facts]. Post 1 teaches one thing. Post 2 gives a checklist. Post 3 explains the service and one next step. Give each a distinct opening. Flag any missing fact with [CHECK]. Do not invent prices, delivery times, guarantees or testimonials.
+
+3. REVIEW EVERY CLAIM
+Read the posts aloud. Replace generic words with details. Check the facts against your source. Delete claims you cannot verify. Ask whether the reader could act on each post without reading the other two. Check image text on a phone and keep the useful detail in the caption.
+
+COPYABLE REVIEW PROMPT
+Compare these drafts with my confirmed facts. List any unsupported claim and suggest a simpler replacement. Flag repeated openings or unclear next steps. Do not add facts.
+
+4. PREPARE AND SCHEDULE
+Open Buffer, choose New Post and select the correct connected channel. Add the caption and images in order. Customize the caption for each network. Choose a date, time and time zone, and check the preview. Save a draft if you still need review. When approved, schedule each post in a separate slot. Tuesday, Thursday and Saturday are an example cadence, not a guaranteed best time.
+
+5. CHECK THE RESULT
+Confirm all three posts appear in the correct channel queue with the intended dates, time zone and media. After the first goes out, open the published post and check the caption, link and image order. If delivery is uncertain, check the queue and platform before retrying to avoid duplicates.
+
+IF SOMETHING GOES WRONG
+Posts sound alike: change the question each one answers.
+AI invents a claim: remove it or replace it with a verified fact.
+Schedule button unavailable: wait for the upload, check channel connection and queue capacity.
+Wrong time: compare the channel time zone with the time shown in the composer.
+Post failed: read the platform error and confirm it did not publish before retrying.
+
+OFFICIAL REFERENCES
+OpenAI Academy prompting: https://academy.openai.com/public/clubs/work-users-ynjqu/resources/prompting
+Buffer scheduling: https://support.buffer.com/en-us/articles/scheduling-posts-4Qdld7giAZ
+Buffer scheduling limits: https://support.buffer.com/en-us/articles/how-many-posts-can-i-schedule-in-advance-Kmy2IEecqm
+Buffer time zones: https://support.buffer.com/en-us/articles/setting-up-your-timezones-and-posting-schedules-P4iSag90Fl
+

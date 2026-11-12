@@ -7,6 +7,12 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1045": {
+    title: "One Topic, Three Posts Workflow",
+    description: "Create a teaching post, a checklist, and a service post from one business brief.",
+    file: "/resources/one-topic-three-posts-workflow.txt",
+    format: ".txt",
+  },
   "1044": {
     title: "ChatGPT Brand Voice Starter Guide",
     description: "Build a clear writing brief, use your own examples, and refine social post drafts with reusable prompts.",
