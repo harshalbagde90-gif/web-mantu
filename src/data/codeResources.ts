@@ -7,6 +7,12 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1049": {
+    title: "Runway Free Product Shot Starter Guide",
+    description: "Make a short image-to-video product shot with a copyable prompt and check the Runway Free plan limits.",
+    file: "/resources/runway-starter-guide.txt",
+    format: ".txt",
+  },
   "1048": {
     title: "Price Enquiry Reply Kit",
     description: "Templates for fixed prices, custom quotes and a gentle follow-up.",

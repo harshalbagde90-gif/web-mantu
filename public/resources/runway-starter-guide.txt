@@ -1,0 +1,21 @@
+RUNWAY FREE: MAKE YOUR FIRST PRODUCT SHOT
+
+Open Runway: https://app.runwayml.com/
+Free plan details: https://help.runwayml.com/hc/en-us/articles/50404627334547-Free-plan-details
+Credits and model costs: https://help.runwayml.com/hc/en-us/articles/15124877443219-How-do-credits-work
+Higgsfield free plan: https://higgsfield.ai/creator-hub/help-center/plans/what-does-the-free-plan-include
+
+1. Sign in and check the credit balance. Runway lists 125 one-time credits on the Free plan. Spent credits do not refresh. Free video exports have a watermark.
+2. Open the video generation workspace and choose an image-to-video model available on your account. Models and costs can change. An upgrade prompt means that option is unavailable on your current plan.
+3. Upload a product photo you own or can use. For this example, use a coffee tin with its label facing the camera.
+4. Paste the prompt below. Pick a short available duration. Read the displayed cost before you click Generate.
+5. Play the result. Check the label, product shape and camera motion, then export the clip if it works for your use.
+
+COPYABLE PROMPT
+Slow camera push toward the coffee tin. Warm light moves across the label. Keep the tin steady and the label readable.
+
+IF SOMETHING GOES WRONG
+- Warped label: simplify the motion and try a clearer photo. Check the cost before retrying.
+- Upgrade prompt: choose another eligible model on the Free plan.
+- Out of credits: the starter balance does not refill. Check alternatives or plan costs before paying.
+- Visible watermark: this is expected on the Free plan.
