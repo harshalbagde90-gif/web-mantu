@@ -7,6 +7,24 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1048": {
+    title: "Price Enquiry Reply Kit",
+    description: "Templates for fixed prices, custom quotes and a gentle follow-up.",
+    file: "/resources/price-enquiry-reply-kit.txt",
+    format: ".txt",
+  },
+  "1047": {
+    title: "Claude Website Brief Template",
+    description: "Decide what your website needs, fill a sample brief and review it with Claude.",
+    file: "/resources/claude-website-brief-template.txt",
+    format: ".txt",
+  },
+  "1046": {
+    title: "Website Enquiry Journey Audit",
+    description: "Follow the landing page, CTA, form, confirmation and inbox to find where enquiries get stuck.",
+    file: "/resources/website-enquiry-journey-audit.txt",
+    format: ".txt",
+  },
   "1045": {
     title: "One Topic, Three Posts Workflow",
     description: "Create a teaching post, a checklist, and a service post from one business brief.",

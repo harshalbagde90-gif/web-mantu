@@ -1,0 +1,41 @@
+PRICE ENQUIRY REPLY KIT
+WebMantu Digital | 16 November 2026
+
+Use this when someone asks what a service costs. You need the current approved price list, what each price includes and permission to reply from the business account. No paid tool is required. AI editing is optional. Use the limits of your existing account and keep customer details out of prompts.
+
+1. CHECK WHAT YOU KNOW
+Confirm the price, currency, inclusions and any extra fees before replying. Check whether the price is fixed or depends on scope. If the price is uncertain, say you will confirm it.
+
+2. REPLY WITH THE PRICE IF IT IS FIXED
+Copy: “A [service] is [approved price]. That includes [items]. [Extra item] costs [approved price], if you need it. Would you like [simple next step]?”
+Only include extras you can confirm. If tax or fees apply, make the total and terms clear before taking payment.
+
+3. ASK ONE QUESTION IF THE QUOTE DEPENDS ON SCOPE
+Copy: “The price depends on [scope detail]. Could you share [one detail]? I can then confirm what is included and give you a firm quote.”
+If you have an approved range, share it with its assumptions. State when you can confirm the final quote only if you can meet that timing.
+
+4. FOLLOW UP WITH CARE
+Check the thread first. If the conversation makes a follow-up appropriate, send one helpful message. Stop if the person declines or asks you to stop.
+Copy: “Still comparing options? I can explain what is included if that would help.”
+
+FICTIONAL WORKED EXAMPLE
+Customer: “How much for a deep clean?”
+Business: “How many bedrooms need cleaning? That will help me give you the right quote.”
+Customer: “Two bedrooms.”
+Business: “For two bedrooms, our deep clean is R1,400. It covers floors, bathrooms and kitchen surfaces. Oven cleaning costs R180 extra if requested. Would you like me to check availability?”
+These prices are illustrative. Replace every amount and term with approved business information.
+
+COPYABLE AI PROMPT
+Rewrite this price enquiry response in two short sentences. Confirm any known cost and what it includes. If scope is missing, ask only the question that most affects the quote. End with one optional next step. Use only the following approved facts: [facts]. If price, availability or terms are missing, mark [CHECK]. Do not add discounts, promises or customer details. Draft: [redacted draft].
+
+SUCCESS CHECK
+Before sending, confirm the amount, currency, inclusions, tone and next step. Run the prompt with a fixed price, a missing scope detail and a customer who declined. The drafts should handle all three correctly. Review and send each reply yourself.
+
+TROUBLESHOOTING
+Wrong price: correct it promptly and state exactly what changed.
+Too many questions: keep the one most likely to change the quote.
+AI filled in missing information: delete it, check the approved list and use [CHECK] until verified.
+No response: keep the thread open for a reply and avoid repeated messages.
+
+OFFICIAL REFERENCE
+Claude prompting best practices: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices

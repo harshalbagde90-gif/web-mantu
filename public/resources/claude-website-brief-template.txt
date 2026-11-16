@@ -1,0 +1,55 @@
+CLAUDE WEBSITE BRIEF TEMPLATE
+WebMantu Digital | Reviewed 14 November 2026
+
+Use this template to agree what your website should do before you ask Claude to plan it. Fill it in with approved information. You can also use the template with a designer or developer. You need access to Claude to run the prompts. Availability and limits depend on your plan. No API or paid tool is needed to fill in the template. Hosting, a domain and form delivery are separate decisions.
+
+1. GOAL
+Primary visitor action: [one action]
+What should the business receive or learn: [result]
+
+2. AUDIENCE
+Who is the visitor: [specific group]
+What do they need to know before acting: [questions or concerns]
+
+3. PAGES
+List the pages and the job of each one:
+[page] -> [purpose] -> [next step]
+
+4. CONTENT
+List approved text, facts, photos and contact details. Name the owner of any missing item. Mark unconfirmed facts as [CHECK].
+
+5. DESIGN
+Describe the style, colours and fonts. Include two references and say what you like about each. Specify mobile layout, readable text, contrast and visible focus for keyboard users.
+
+6. FORM AND FOLLOW-UP
+List the fields, which ones are required, where enquiries go and who replies. Specify helpful validation, a success message after acceptance and how you will test delivery.
+
+7. SUCCESS CRITERIA
+Write specific checks for the main link, mobile layout, form errors, successful delivery and any important business facts. Assign a person to approve each check.
+
+FILLED FICTIONAL EXAMPLE
+Goal: repair requests. Audience: local riders asking about availability.
+Pages: Home introduces the shop, Repairs explains services, Contact collects enquiries.
+Content: approved shop photos, confirmed hours and real repair descriptions. Prices are [CHECK].
+Design: warm cream background, readable dark text and a visible Request a repair button.
+Form: name, email and repair issue. Send valid requests to the repair desk. Tell the visitor when a reply is expected after confirming that timing with staff.
+Success: test the main button on mobile, submit with an invalid email, then submit a valid test and verify both confirmation and delivery.
+
+PROMPT 1 — REVIEW THE BRIEF
+Review my brief in <brief>[paste brief]</brief>. Return missing decisions, conflicts and up to five questions. Group questions by the seven sections. Use only my facts and mark anything else [CHECK]. Wait for my answers before proposing a page plan.
+
+PROMPT 2 — PLAN AND CHECK
+Using my approved brief, return a page outline, content checklist, form flow and a launch test table with expected results. Keep uncertain facts marked [CHECK]. Use placeholder content for missing items. Do not invent prices, reviews or integrations.
+
+TROUBLESHOOTING
+Generic plan: name one visitor and one action, then provide a real page example.
+Scope grows: state which pages and features are outside this version.
+Unknown facts appear: replace them with [CHECK] and assign an owner.
+Form delivery fails: check validation, confirmation and the actual inbox separately.
+Before launch: have a person verify the content and run the checks on a real phone and desktop.
+
+OFFICIAL REFERENCES
+Claude: https://claude.ai/
+Claude prompting best practices: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+Claude plans: https://claude.com/pricing
+W3C forms tutorial: https://www.w3.org/WAI/tutorials/forms/

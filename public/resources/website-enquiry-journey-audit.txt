@@ -1,0 +1,35 @@
+WEBSITE ENQUIRY JOURNEY AUDIT
+WebMantu Digital | Reviewed 13 November 2026
+
+Use this audit to find where a visitor gets stuck before your team receives their enquiry. Test your own site or a site you have permission to review. You need a phone, a desktop browser and access to the receiving inbox or CRM. The manual checks need no paid tools. Analytics is optional and requires access to your existing account.
+
+1. START WITH ONE PAGE
+Choose the page visitors use before enquiring. Open it on a phone. Ask someone who has not seen it to explain the offer, the customer it is for and the next step. If they cannot answer, rewrite the first screen using specific language.
+
+2. FOLLOW THE MAIN BUTTON
+Tap the button on mobile and desktop. Check the destination, visible label and whether the form is easy to find. Keep trustworthy proof close to the next step. Use genuine reviews or approved work examples. Never invent testimonials.
+
+3. TRY THE FORM
+Use a test name and an address you control. Try a missing required field and a mistyped email. Check that each error tells you how to fix it. Ask only for details the team needs. Then submit a valid test and record the time. Check the success message and what response it promises.
+
+4. VERIFY DELIVERY AND FOLLOW-UP
+Find the test enquiry in the inbox or CRM. Verify the right owner received a notification and can reply. If no one gets it, check spam, mail routing, CRM rules and notifications. If the page shows success without a received enquiry, ask your developer to check server logs and integrations. Do not send real customer details in test records.
+
+5. VERIFY MEASUREMENT IF YOU USE GA4
+Google recommends generate_lead for initial lead acquisition such as a form submission. If your team uses it for this enquiry flow, use DebugView to check that a successful test produces one event and a rejected submission produces none. Do not send personal information to Analytics. An event and a received enquiry are separate checks.
+
+6. LOG THE FIRST FAILURE AND RETEST
+Record device, page, step, expected result, actual result and owner. Fix the earliest failed step first. Run the full journey again on mobile and desktop before marking it fixed.
+
+FICTIONAL EXAMPLE
+A roofing company offers roof leak inspections. Its mobile quote button points to a generic services page. After changing the destination to the form, a valid test shows confirmation but reaches the wrong inbox. The team fixes routing, repeats the test, confirms delivery and verifies that the assigned person can reply.
+
+COPYABLE REVIEW PROMPT
+Using only these test notes [paste redacted notes], list the first failed step, what evidence confirms it, one proposed fix and the retest. Flag missing evidence. Do not invent traffic numbers, reviews or results.
+
+OFFICIAL REFERENCES
+W3C forms tutorial: https://www.w3.org/WAI/tutorials/forms/
+W3C form labels: https://www.w3.org/WAI/tutorials/forms/labels/
+W3C validation: https://www.w3.org/WAI/tutorials/forms/validation/
+Google Analytics recommended events: https://developers.google.com/analytics/devguides/collection/ga4/reference/events
+Google Analytics verification: https://developers.google.com/analytics/devguides/collection/ga4/troubleshoot
