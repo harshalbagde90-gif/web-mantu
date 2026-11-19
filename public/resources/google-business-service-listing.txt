@@ -1,0 +1,58 @@
+Google Business Profile Service Listing Kit
+
+Use this guide to add the services customers can book or request from your business.
+
+1. Make a short list before you edit
+
+Write down three to five real services. Use the words customers use when they ask for those services. Keep each name distinct. Start with the business categories that accurately describe what you do.
+
+You need a Google Account that manages an eligible Business Profile. If Google asks you to verify the profile, follow the verification steps shown in your account. The standard Business Profile is free.
+
+Find your profile: https://www.google.com/business/
+Verification help: https://support.google.com/business/answer/7107242
+
+2. Add or edit a service
+
+Sign in with the account that manages the listing. In Google Search, search for your business name and city. On Google Maps, open your Business Profile. Select Edit services. Pick the services you actually offer and save. If your service is missing from the suggestions, try Add custom service. Group the service under the appropriate existing category if your editor offers that option.
+
+Google instructions: https://support.google.com/business/answer/9455399
+Business categories: https://support.google.com/business/answer/7249669
+
+3. Describe what someone gets
+
+Open the service you added. Write one or two sentences about what is included and which customer it helps. Add a price only if you can keep it accurate and the editor shows the price field. If your fee depends on the job, leave that field blank when allowed. Keep phone numbers and prices out of the custom service name.
+
+Copy this template:
+Service name: [the specific job a customer asks for]
+Description: [Say what is included]. [Mention one scope detail customers often ask about].
+Price: [Optional. Use a real amount only when the scope is clear.]
+
+4. Copy this example and adapt it
+
+Example business: A fictional bike repair shop.
+Service name: Flat tire repair
+Description: We replace the inner tube and check the tire for sharp debris. Tell us your wheel size when you ask for a quote.
+Price: Leave blank if it changes with wheel size or tube type.
+
+Too broad: Bike repairs.
+Clearer: Flat tire repair.
+The clearer name helps the reader identify the job they need.
+
+5. Optional AI prompt
+
+“Turn my notes into three separate Google Business Profile service entries. Give each entry a plain-English service name and one sentence describing what I really do. Do not add prices, locations or claims. Flag missing details for me to verify. Here are my own service notes: [paste notes].”
+
+Read the output before using it. Remove any service or claim you cannot confirm.
+
+6. Check what customers can see
+
+Save and reopen Edit services to confirm the right names and categories. Then look up the profile as a visitor in Google Search or Maps on your phone. Look for the services section when it is shown and check the description and price. Ask someone else to try finding the example service.
+
+Troubleshooting
+
+- Cannot find Edit services? Check the managing account, profile verification and business category. Google can show different options for different businesses.
+- A custom service will not save? Remove prices, numbers and promotional language from its name, and check whether the service already exists.
+- Changes are missing? Check whether Google is reviewing the edit. Avoid repeatedly adding duplicate entries while a review is pending.
+
+Google edit review: https://support.google.com/business/answer/3038311
+Business representation guidelines: https://support.google.com/business/answer/3038177
