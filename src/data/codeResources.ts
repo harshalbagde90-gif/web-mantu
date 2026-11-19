@@ -7,6 +7,12 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1054": {
+    title: "Google Business Profile Holiday Hours Checklist",
+    description: "Set date-specific opening hours and closures, then check your public Google listing.",
+    file: "/resources/google-business-holiday-hours.txt",
+    format: ".txt",
+  },
   "1053": {
     title: "Google Business Profile Post and Event Kit",
     description: "Copy templates for updates, offers and events, then follow the checklist to publish and verify your post.",

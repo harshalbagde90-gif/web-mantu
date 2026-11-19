@@ -1,0 +1,57 @@
+Google Business Profile Holiday Hours Checklist
+
+Update your hours for holidays so customers can plan a visit.
+
+1. Confirm the hours for each location
+
+Write down the date, the location and its opening and closing times. Mark full-day closures as Closed. Confirm official holiday hours even if your normal hours still apply. Customers may otherwise see a notice that the hours could differ.
+
+Copy this template:
+Location: [Store name or address]
+Date: [Day, month and year]
+Status: [Open or Closed]
+Open to close: [Local times, if open]
+Extra shift: [Second time window, if needed]
+
+2. Choose the right setting
+
+Use regular hours for your usual weekly schedule. Use Special hours for date-specific exceptions such as a holiday, a short closure or a special event. Google says you can use Special hours for closures of up to six days in a row. For seven or more days in a row, or an unknown period, see Google's guidance on marking a business Temporarily closed.
+
+You need access to manage the correct Business Profile. Google says the profile needs to be set to Open with main hours for Special hours to display.
+
+Manage your profile: https://business.google.com/
+Special hours: https://support.google.com/business/answer/6303076
+Regular hours: https://support.google.com/business/answer/15300403
+
+3. Enter the date in Google
+
+Sign in with the account that manages your Business Profile. Open Edit profile, then Hours. Find Special hours and pick the edit icon. Choose Review next to a suggested holiday, or Add a date for any other day you need to change. For a date you already added, select that date to edit it.
+
+If open, clear the Closed checkbox and enter your opening and closing times. If closed all day, check Closed. If you open twice in a day, use Add hours to enter a second time window. Save, then reopen Special hours to confirm that the right date and times were saved.
+
+4. Worked example: a fictional bakery
+
+Usual hours: 8 AM to 5 PM.
+24 December 2026: Open from 8 AM to 1 PM.
+25 December 2026: Closed all day.
+26 December 2026: Open from 8 AM to 5 PM. Confirm these hours if Google suggests the holiday for your location.
+
+Create one Special hours entry per date. The regular 8 AM to 5 PM schedule stays in place for other dates.
+
+Optional copyable prompt:
+“Make a holiday-hours checklist for my team using these confirmed facts: [location, dates, local opening and closing times, full-day closures]. Write one line per date. Flag any date or time that is missing and leave it blank. Do not guess.”
+
+5. Check what a customer sees
+
+Open Google Maps or Search on a phone. Find your public listing by business name and location. Open Hours and look for the affected dates when they are shown. Compare the public listing with what you saved and confirm that your regular weekly hours are still correct. If the holiday is too far away to see there, check the saved date in Edit profile and set a reminder to recheck the public listing nearer the date.
+
+6. Troubleshoot a mismatch
+
+- Missing Special hours? Check the managing account, selected location and that the profile uses Open with main hours. If Google asks you to verify the profile, follow the steps shown.
+- One specific day looks wrong? Reopen that date. Check AM or PM and whether Closed is selected.
+- Same holiday at several locations? Check each location separately. One store may open or close at a different time.
+- Still seeing old hours? Check whether Google is reviewing the edit, confirm the saved entries and recheck before customers arrive.
+- Open overnight? Follow the examples in Google's Special hours guide to split a long overnight window when required.
+
+Verification help: https://support.google.com/business/answer/7107242
+Edit review help: https://support.google.com/business/answer/3038311
