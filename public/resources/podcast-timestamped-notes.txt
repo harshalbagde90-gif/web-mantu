@@ -1,0 +1,45 @@
+Podcast to Timestamped Notes Kit
+
+Turn a long interview into one page of notes. Keep a way to find each point in the original.
+
+1. Try the captions first
+
+Open the YouTube video on a desktop. Open the description and select Show transcript if it appears. Keep the timestamps visible. Copy a short section for your notes when permitted, or use your own original captions. Use the timestamps to jump back to the spoken passage. Caption availability, wording and language vary by video.
+
+Official YouTube instructions: https://support.google.com/youtube/answer/15930243
+
+2. Transcribe a file you have permission to use
+
+For your own or an authorized recording without captions, run Whisper on your computer. This route needs compatible Python, FFmpeg and an audio or video file. The command below uses the smaller English-only base.en checkpoint. For another language, use base and set the correct language instead of English. The first run downloads model files. Whisper is free to install, and a local run uses your own computer time and power.
+
+Install Python: https://www.python.org/downloads/
+Install FFmpeg and put it on your PATH: https://ffmpeg.org/download.html
+Whisper install and hardware notes: https://github.com/openai/whisper
+
+In a terminal, run:
+python -m pip install -U openai-whisper
+ffmpeg -version
+whisper "my-recording.mp3" --model base.en --language English --task transcribe --device cpu --fp16 False --output_format srt --output_dir notes
+
+Open the .srt file in the notes folder. It contains timestamps and spoken text. If the whisper command is missing, activate the Python environment you used to install it or try python -m whisper with the same arguments.
+
+3. Summarize in sections
+
+Copy a short section at a time into a tool you are permitted to use. Include timestamps whenever available. If the recording is confidential, keep the text local or use a service approved for that material.
+
+Copy this prompt:
+“Using only the transcript below, give me three takeaways. Under each takeaway, include the original [HH:MM:SS] and one short phrase that supports it. Keep claims attributed to the speaker. Mark unclear names or numbers [verify]. If no time appears in the transcript, write [timestamp unavailable]. Transcript: [paste text].”
+
+After processing each section, combine repeated ideas into one page. Keep the best supporting timestamp for each claim. Save the video link beside your notes.
+
+4. Worked example from a fictional interview
+
+Transcript: [00:12:30] “We added a second pickup window on Friday so the lunch queue would move faster.”
+Note: [00:12:30] The guest says they added a second Friday pickup window to speed up the lunch queue.
+Check: Replay 12:30 and confirm the day and the purpose. Avoid saying the queue actually moved faster unless the speaker provides that result.
+
+5. Quick quality check
+
+Replay at least three key passages. Verify any names, dates, numbers and quotes. If the transcript begins halfway through an episode, preserve the original video times. If a model guesses a timestamp, remove it and find the passage by listening.
+
+Troubleshooting: No Show transcript button? Use creator-provided captions or an authorized recording. FFmpeg unavailable? Install it, reopen the terminal and try ffmpeg -version. CPU transcription slow? Test a few minutes first and try a smaller model. Poor audio? Check the important passages by ear.

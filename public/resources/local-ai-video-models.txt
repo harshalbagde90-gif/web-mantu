@@ -1,0 +1,43 @@
+Local AI Video Model Setup Guide
+
+Choose a checkpoint that fits your computer and make one short clip before planning a batch. VRAM means memory on the graphics card.
+
+1. Check the computer you have
+
+On Windows, open Task Manager, Performance, GPU and note dedicated GPU memory. On NVIDIA systems, nvidia-smi can also show the GPU and memory. Note your GPU model, driver, system RAM and free disk space. System RAM helps if parts of a model are moved to CPU, but that usually slows generation.
+
+NVIDIA tool guide: https://docs.nvidia.com/deploy/nvidia-smi/
+ComfyUI documentation: https://docs.comfy.org/
+
+2. Pick one checkpoint
+
+Wan2.1 T2V 1.3B: Good first test for 480p text-to-video. The official project reports about 8.19 GB of VRAM for its baseline test. A card labeled 8 GB has less headroom than that example. Lower-memory workflows can differ. This specific checkpoint takes a text prompt. Use another supported checkpoint if you need image input.
+Repository: https://github.com/Wan-Video/Wan2.1
+Checkpoint: https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B
+
+Wan2.2 TI2V 5B: Supports text-to-video and image-to-video. The model card's 720p example uses a 24 GB GPU with the specified offload flags. Check the command and workflow you select. The larger A14B model has different requirements.
+Repository: https://github.com/Wan-Video/Wan2.2
+Checkpoint and official command: https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B
+
+LTX-Video 2B distilled: Try this lighter checkpoint for quick drafts. Start with the official 2B distilled workflow. Its memory needs depend on frame size, length, precision and offloading. The 13B examples have different requirements.
+Workflow and checkpoints: https://github.com/Lightricks/LTX-Video
+Model files: https://huggingface.co/Lightricks/LTX-Video
+
+3. Set up one matching workflow
+
+Install ComfyUI using its official instructions for your operating system and GPU. Open the model's official workflow notes. Load the example that names your exact checkpoint. Download only the required checkpoint, text encoder and video decoder into the paths shown in that workflow. Reopen or refresh ComfyUI and select the files in the corresponding model nodes. If using the official command line instead, install the versions listed in that model's repository and use its checkpoint path.
+
+4. Run a small test
+
+Choose a supported low resolution, a short duration and one output. Use the workflow's default frame count if it requires specific frame sizes or multiples. Save the seed and settings so you can test one change at a time.
+
+Copyable prompt:
+“A mustard ceramic mug sits on a dark desk. The camera slowly moves in, warm window light, stable framing, no text.”
+
+Worked example: Start with Wan2.1 T2V 1.3B at its 480p example preset. Check whether the mug stays recognizable as the camera moves. Then keep the seed and change only the prompt's camera action. Compare the two outputs.
+
+5. Fix problems and verify rights
+
+Out of memory? Try fewer frames or a smaller supported resolution, close GPU-heavy apps, or use a smaller checkpoint. Use offloading or quantized files only when the specific workflow documents them. Missing node or file? Check the workflow version and model filenames. Blank or broken clip? Return to the official preset and inspect the first and last frames.
+
+Check the exact checkpoint's license and any additional terms, especially before paid work. Wan examples above publish Apache 2.0 terms. For LTX-Video, check the weight terms for the release you download. Use reference images you have permission to use.

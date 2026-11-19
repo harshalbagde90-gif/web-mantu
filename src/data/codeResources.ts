@@ -7,6 +7,24 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1055": {
+    title: "Podcast to Timestamped Notes Kit",
+    description: "Turn YouTube captions or an authorized recording into notes with timestamps you can check.",
+    file: "/resources/podcast-timestamped-notes.txt",
+    format: ".txt",
+  },
+  "1056": {
+    title: "Local AI Video Model Setup Guide",
+    description: "Compare three local video model options and test a short clip with the right checkpoint.",
+    file: "/resources/local-ai-video-models.txt",
+    format: ".txt",
+  },
+  "1057": {
+    title: "Local AI Image Model Setup Guide",
+    description: "Compare FLUX.1 schnell, Qwen-Image and SDXL and test a local setup with one prompt.",
+    file: "/resources/local-ai-image-models.txt",
+    format: ".txt",
+  },
   "1054": {
     title: "Google Business Profile Holiday Hours Checklist",
     description: "Set date-specific opening hours and closures, then check your public Google listing.",

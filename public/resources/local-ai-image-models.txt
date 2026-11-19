@@ -1,0 +1,40 @@
+Local AI Image Model Setup Guide
+
+Compare three image models using the same prompt and test the result on your own computer.
+
+1. Match the model to the job
+
+SDXL Base 1.0: A good first test for general image generation and established workflows. You can run the base model on its own. For a first comparison, skip the optional refiner. Its model card lists OpenRAIL++ terms.
+Official weights and instructions: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
+
+FLUX.1 schnell: For a fast draft workflow. The official card describes generation in one to four inference steps. Step count is not a hardware requirement or a promise of render speed. The model card lists Apache 2.0.
+Official weights and instructions: https://huggingface.co/black-forest-labs/FLUX.1-schnell
+
+Qwen-Image: A 20B-parameter model worth testing for images that include text, such as a simple poster. Check the output for misspellings. Plan extra memory for full weights and consider a documented lower-memory workflow. The official model card lists Apache 2.0.
+Official weights and instructions: https://huggingface.co/Qwen/Qwen-Image
+
+2. Check hardware and choose a workflow
+
+Look up your dedicated GPU memory and available storage. A download size does not tell you how much VRAM inference will need. Exact use varies by model precision, image size, text encoders and offloading. Start with an official ComfyUI template or the Diffusers example in the specific model card. Prefer SDXL as a small first test if you are unsure whether your machine can run the larger options.
+
+ComfyUI documentation: https://docs.comfy.org/
+Hugging Face Diffusers: https://huggingface.co/docs/diffusers/
+
+3. Install and run one image
+
+Install a supported runtime. Open the workflow for the exact model and use the documented checkpoint, decoder and text encoder. For Diffusers, follow that card's install steps and example rather than substituting settings from another model. Download into the folders shown by your workflow and check the model selections once it loads.
+
+4. Run a comparison you can repeat
+
+Copyable prompt:
+“Editorial product photo of one orange mug on a charcoal table, warm light from the left, cream background, generous empty space, square composition.”
+
+Use one image per run. Keep the prompt, aspect ratio and seed documented. Use the recommended step settings for each checkpoint. Compare whether the mug is cleanly shaped, whether the light comes from the requested side, and whether the empty space is usable. To test poster text separately, ask for the words “COFFEE CLUB” and check every letter.
+
+Worked example: If FLUX gives a good layout but a Qwen draft spells the label wrong, keep the better layout and add the headline in your design editor. Exact text is what matters for the final poster.
+
+5. Troubleshooting and rights
+
+Out of memory? Reduce image size within supported settings, render one image at a time, or use a documented smaller or offloaded workflow. A missing file usually means the wrong checkpoint, encoder or decoder path. Blank output? Reload the model's official example and check supported precision on your device.
+
+Review the license for the exact weights and any add-ons before commercial use. Use only inputs you have rights to. Confirm brand spelling and remove invented marks before sharing output.
