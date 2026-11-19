@@ -1,0 +1,72 @@
+Google Business Profile Post and Event Kit
+
+Use these templates to publish an announcement, a promotion or an event on your Business Profile in Google Search and Maps.
+
+1. Open the profile you manage
+
+Sign in with the Google Account that manages your Business Profile. Go to https://business.google.com/ and select the correct business if you manage more than one. If Google asks you to verify the profile, follow the steps shown there. You do not need to buy Google Ads to publish through the Business Profile.
+
+Official setup: https://support.google.com/business/answer/7342169
+Verification help: https://support.google.com/business/answer/7107242
+
+2. Pick the right format
+
+Update: Use this for a news item people need to know, such as a new service or a change in pickup instructions. If you add an action button, point it to the page where customers can take that action. For changed opening hours, also update the actual Hours field in the profile.
+
+Offer: Use this for a specific deal with a start and end date. Add the title, dates and times. Google adds a View Offer button. Include the eligibility rules and exclusions in plain language. Add a coupon code or redemption link if you have one.
+
+Event: Use this for something that happens at a set time, such as a class or open house. Add a name, start and end dates, and start and end times. If no time is supplied, Google can show the event as running all day on those dates.
+
+Offer guide: https://support.google.com/business/answer/18888417
+Hours guide: https://support.google.com/business/answer/15300403
+
+3. Copy the matching template
+
+UPDATE
+What's new: [One sentence explaining the change]
+When it starts: [Date, if relevant]
+What the customer should do: [One action]
+Button link: [A working page for that action]
+
+OFFER
+Title: [The deal in plain words]
+Starts: [Date and local time]
+Ends: [Date and local time]
+Who can use it: [Eligibility and exclusions]
+How to redeem: [One step, with code or link if needed]
+
+EVENT
+Title: [What people can attend]
+Starts: [Date and local time]
+Ends: [Date and local time]
+Where: [Venue or meeting point]
+Description: [What attendees will do and one detail they need]
+Button link: [Direct signup or event details page]
+
+4. Worked example: a fictional pottery studio
+
+Title: Beginner pottery workshop
+Starts: 5 December 2026, 10:00 AM local time
+Ends: 5 December 2026, 11:30 AM local time
+Where: At the studio
+Description: Shape a small clay cup in a 90-minute class. Tools and clay are included. Reserve a spot before you come.
+Button link: Paste the real booking page for your own event.
+
+Copyable AI prompt:
+“Write one short Google Business Profile Event post using only these facts: [title, date, start time, end time, location, what is included, and booking link]. Use simple English. Keep the booking action clear. If a fact is missing, ask me for it.”
+
+5. Publish and check it on your phone
+
+Open your profile, choose Posts, and select Add post. Pick the format and enter the details. Add a photo you have permission to use. Check the text, dates and link. Select Post when ready. If you use Schedule this post, choose a separate time when the announcement should go live. Keep the event's start and end times as the actual time customers should attend.
+
+After Google marks it Live, open the profile as a visitor in Search or Maps. On mobile, check the Updates or Overview tab when shown. On desktop, look for From the owner. Tap the button and make sure it goes to the correct page.
+
+6. Troubleshooting
+
+- No Posts option: Check the managing account, selected business and verification status.
+- Pending: Google may still be processing the post, or the profile may need verification. Check the status before submitting again.
+- Not approved: Open the status explanation and review Google's content policy. Use the profile contact fields for your phone number and keep it out of the post text to avoid rejection.
+- Event looks like it lasts all day: Reopen the post and set both start and end times.
+- Wrong booking page: Open the button link on a phone, fix the destination and recheck after editing.
+
+Post content policy: https://support.google.com/business/answer/7213077

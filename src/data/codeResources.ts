@@ -7,6 +7,12 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1053": {
+    title: "Google Business Profile Post and Event Kit",
+    description: "Copy templates for updates, offers and events, then follow the checklist to publish and verify your post.",
+    file: "/resources/google-business-event-post-kit.txt",
+    format: ".txt",
+  },
   "1052": {
     title: "Google Business Profile Service Listing Kit",
     description: "Write clear service names and descriptions, decide when to show prices, and check your public Google listing.",
