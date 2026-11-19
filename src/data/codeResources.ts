@@ -7,6 +7,18 @@ export type CodeResource = {
 };
 
 export const codeResources: Readonly<Record<string, CodeResource>> = {
+  "1051": {
+    title: "Google Business Profile Photo Shot List",
+    description: "Plan five useful photos, export them at the right size, and upload them to your Business Profile.",
+    file: "/resources/google-business-photo-shot-list.txt",
+    format: ".txt",
+  },
+  "1050": {
+    title: "Google Business Profile Contact Checklist",
+    description: "Set the right phone number and social links, then test the public listing.",
+    file: "/resources/google-business-contact-checklist.txt",
+    format: ".txt",
+  },
   "1049": {
     title: "Runway Free Product Shot Starter Guide",
     description: "Make a short image-to-video product shot with a copyable prompt and check the Runway Free plan limits.",

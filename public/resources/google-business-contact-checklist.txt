@@ -1,0 +1,27 @@
+GOOGLE BUSINESS PROFILE CONTACT CHECKLIST
+
+Manage your profile: https://business.google.com/
+Edit business information: https://support.google.com/business/answer/3039617
+Social profiles and accepted URL formats: https://support.google.com/business/answer/13580646
+Verify your profile: https://support.google.com/business/answer/7107242
+
+1. Open the right location
+Sign in with the Google account that manages the profile. Search for the business name and city. If you manage multiple locations, verify the displayed city and location before editing.
+
+2. Update the public phone
+Choose Edit profile, then Contact. Open the Phone number field. Enter the business line that someone actually answers, with the correct country or area code. Save. If the public Call button is missing, check whether the phone number is hidden in advanced profile settings.
+
+3. Add social profiles
+In Contact, open Social profiles if it is available. Choose the platform, paste the direct public profile URL and save. Add one link per supported platform. For example, enter the public Instagram profile address in the form https://www.instagram.com/{username}. Copy the actual URL from the account instead of guessing the handle. Social links are available only in select regions.
+
+4. Test the customer view
+After the changes appear, open the public listing in Maps or Search from another browser session or device. Check the location, call button number, and that each social link opens the intended public profile. Do not expose a private personal number to test the listing.
+
+EXAMPLE
+A bike shop with two locations checks that the downtown listing calls the downtown desk. It adds the shop's public Instagram page. It opens the listing on a phone to confirm both actions reach the right place.
+
+TROUBLESHOOTING
+- Cannot edit: confirm you manage the right profile and complete any verification Google requires.
+- Social profiles missing: Google may not offer the feature in your region. Recheck the Contact tab, then leave the field out if unavailable.
+- Link rejected: open it in a separate browser. Use the platform's supported direct profile URL and remove duplicates.
+- Changes not visible: check edit status and review again after Google processes the update.
