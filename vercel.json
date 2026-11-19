@@ -1,5 +1,25 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "destination": "/about-us",
+      "permanent": true,
+      "source": "/about"
+    },
+    {
+      "destination": "/services/website-development",
+      "permanent": true,
+      "source": "/services/custom-web-dev"
+    },
+    {
+      "destination": "/services/website-development",
+      "permanent": true,
+      "source": "/services/website-improvement"
+    }
   ]
 }

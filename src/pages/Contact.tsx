@@ -39,33 +39,35 @@ const Contact = () => {
     emailjs.init("Gbsxgx5a7dejoZsyf");
   }, []);
 
-  const validateForm = () => {
+  const getFormErrors = (data = formData) => {
+    const formData = data;
     const newErrors: Record<string, string> = {};
     if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
     if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email) newErrors.email = "Email is required";
-    else if (!emailRegex.test(formData.email)) newErrors.email = "Please enter a valid email address";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!emailRegex.test(formData.email.trim())) newErrors.email = "Please enter a valid email address";
     
     if (formData.countryCode === "other" && !formData.customCountryCode.trim()) {
-      newErrors.customCountryCode = "Code required";
+      newErrors.customCountryCode = "Country code is required";
+    } else if (formData.countryCode === "other" && !/^\+[1-9]\d{0,2}$/.test(formData.customCountryCode.trim())) {
+      newErrors.customCountryCode = "Use a valid country code, such as +49";
     }
     
-    const phoneRegex = /^[\d\s\-\+()]{7,15}$/;
-    if (!formData.phone) newErrors.phone = "Phone number is required";
-    else if (!phoneRegex.test(formData.phone)) newErrors.phone = "Invalid phone format";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    else if (!/^\d{7,15}$/.test(formData.phone.replace(/[\s()-]/g, ""))) newErrors.phone = "Enter a phone number with 7–15 digits, without the country code";
     
     if (!formData.service) newErrors.service = "Please select a service";
     if (!formData.message.trim()) newErrors.message = "Message is required";
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
+  const canSubmit = Object.keys(getFormErrors()).length === 0;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    if (sending || !canSubmit) return;
 
     try {
       setSending(true);
@@ -85,7 +87,7 @@ const Contact = () => {
       );
 
       // 2. Prepare WhatsApp URL
-      const phoneNumber = "917499147597";
+      const phoneNumber = "919518771543";
       const waMessage = `Hello Web Mantu! 🚀%0A%0AI just saw your portfolio and I am interested in your services.%0A%0A*Project Inquiry Details:*%0A👤 *Name:* ${formData.firstName} ${formData.lastName}%0A📧 *Email:* ${formData.email}%0A📞 *Contact:* ${userPhone}%0A💼 *Service:* ${formData.service}%0A💬 *Message:* ${formData.message}%0A%0ALooking forward to hearing from you!`;
       const url = `https://wa.me/${phoneNumber}?text=${waMessage}`;
       setWhatsappUrl(url);
@@ -110,10 +112,21 @@ const Contact = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
-    }
+    const nextData = { ...formData, [name]: value };
+    setFormData(nextData);
+    setErrors(prev => {
+      const nextErrors = { ...prev };
+      if (prev[name]) nextErrors[name] = getFormErrors(nextData)[name] ?? "";
+      if (name === "countryCode" && value !== "other") delete nextErrors.customCountryCode;
+      return nextErrors;
+    });
+  };
+
+  const handleFieldBlur = (event: React.FocusEvent<HTMLFormElement>) => {
+    const field = event.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+    if (!field.name || !field.value.trim()) return;
+    const error = getFormErrors()[field.name];
+    if (error) setErrors(prev => ({ ...prev, [field.name]: error }));
   };
 
   useEffect(() => {
@@ -144,22 +157,20 @@ const Contact = () => {
     "description": "Get in touch with WebMantu Digital. We provide premium web design, SEO, and AI automation solutions.",
     "url": "https://webmantu.com/contact",
     "mainEntity": {
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "WebMantu Digital",
       "image": "https://webmantu.com/favicon.png",
-      "telephone": "+91-7499147597",
+      "telephone": "+91-9518771543",
       "email": "info@webmantu.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Indora square",
         "addressLocality": "Nagpur",
         "addressRegion": "Maharashtra",
-        "postalCode": "440017",
         "addressCountry": "IN"
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91-7499147597",
+        "telephone": "+91-9518771543",
         "contactType": "customer service",
         "availableLanguage": ["English", "Hindi"]
       }
@@ -169,7 +180,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-[#080808] text-white overflow-hidden selection:bg-[#D4A43A]/30">
       <SEO 
-        title="Contact WebMantu Digital for Web Design & AI Automation digital growth Solutions" 
+        title="Contact Us"
         description="Get in touch with WebMantu Digital. We provide premium web design, SEO, and AI automation solutions to clients in India and worldwide."
         schema={contactSchema}
       />
@@ -239,8 +250,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 font-medium mb-1">Call / WhatsApp Us</p>
-                      <a href="https://wa.me/917499147597" target="_blank" rel="noreferrer" className="text-lg text-white hover:text-[#D4A43A] transition-colors">
-                        +91 7499147597
+                      <a href="https://wa.me/919518771543" target="_blank" rel="noreferrer" className="text-lg text-white hover:text-[#D4A43A] transition-colors">
+                        +91 9518771543
                       </a>
                     </div>
                   </div>
@@ -276,23 +287,20 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold font-display mb-2">Send us a message</h3>
                 <p className="text-gray-400 mb-8 font-body">Fill out the form below and we'll get back to you within 24 hours.</p>
 
-                <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
+                <form className="space-y-6 relative z-10" onSubmit={handleSubmit} onBlur={handleFieldBlur}>
                   {submitStatus === "success" && (
                     <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium">
                       Thank you! Your message has been sent successfully. We will get back to you within 24 hours.
                     </div>
                   )}
-                  {Object.keys(errors).length > 0 && (
-                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium">
-                      Please fill out all required fields correctly to proceed.
-                    </div>
-                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">First Name</label>
+                      <label htmlFor="contact-firstName" className="text-sm font-medium text-gray-300">First Name</label>
                       <input 
                         type="text" 
                         name="firstName"
+                        id="contact-firstName"
+                        required
                         value={formData.firstName}
                         onChange={handleInputChange}
                         className={`w-full bg-[#0B0B0C] border ${errors.firstName ? 'border-red-500/50 focus:ring-red-500/50' : 'border-white/10 focus:border-[#D4A43A]/50 focus:ring-[#D4A43A]/50'} rounded-xl px-4 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:ring-1 transition-all placeholder:text-gray-600 placeholder:font-normal`}
@@ -301,10 +309,12 @@ const Contact = () => {
                       {errors.firstName && <p className="text-red-400 text-xs mt-1">{errors.firstName}</p>}
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">Last Name</label>
+                      <label htmlFor="contact-lastName" className="text-sm font-medium text-gray-300">Last Name</label>
                       <input 
                         type="text" 
                         name="lastName"
+                        id="contact-lastName"
+                        required
                         value={formData.lastName}
                         onChange={handleInputChange}
                         className={`w-full bg-[#0B0B0C] border ${errors.lastName ? 'border-red-500/50 focus:ring-red-500/50' : 'border-white/10 focus:border-[#D4A43A]/50 focus:ring-[#D4A43A]/50'} rounded-xl px-4 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:ring-1 transition-all placeholder:text-gray-600 placeholder:font-normal`}
@@ -315,10 +325,12 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Email Address</label>
+                    <label htmlFor="contact-email" className="text-sm font-medium text-gray-300">Email Address</label>
                     <input 
                       type="email" 
                       name="email"
+                      id="contact-email"
+                      required
                       value={formData.email}
                       onChange={handleInputChange}
                       className={`w-full bg-[#0B0B0C] border ${errors.email ? 'border-red-500/50 focus:ring-red-500/50' : 'border-white/10 focus:border-[#D4A43A]/50 focus:ring-[#D4A43A]/50'} rounded-xl px-4 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:ring-1 transition-all placeholder:text-gray-600 placeholder:font-normal`}
@@ -328,10 +340,12 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Phone Number</label>
+                    <label htmlFor="contact-phone" className="text-sm font-medium text-gray-300">Phone Number</label>
                     <div className="flex gap-3">
                       <select 
                         name="countryCode"
+                        aria-label="Country calling code"
+                        required
                         value={formData.countryCode}
                         onChange={handleInputChange}
                         className={`w-28 md:w-32 bg-[#0B0B0C] border border-white/10 rounded-xl px-2 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:border-[#D4A43A]/50 focus:ring-1 focus:ring-[#D4A43A]/50 transition-all cursor-pointer`}
@@ -348,6 +362,8 @@ const Contact = () => {
                         <input 
                           type="text"
                           name="customCountryCode"
+                          aria-label="Custom country calling code"
+                          required
                           value={formData.customCountryCode}
                           onChange={handleInputChange}
                           placeholder="+00"
@@ -358,6 +374,8 @@ const Contact = () => {
                       <input 
                         type="tel" 
                         name="phone"
+                        id="contact-phone"
+                        required
                         value={formData.phone}
                         onChange={handleInputChange}
                         className={`flex-1 bg-[#0B0B0C] border ${errors.phone ? 'border-red-500/50 focus:ring-red-500/50' : 'border-white/10 focus:border-[#D4A43A]/50 focus:ring-[#D4A43A]/50'} rounded-xl px-4 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:ring-1 transition-all placeholder:text-gray-600 placeholder:font-normal`}
@@ -369,9 +387,11 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Service of Interest</label>
+                    <label htmlFor="contact-service" className="text-sm font-medium text-gray-300">Service of Interest</label>
                     <select 
                       name="service"
+                      id="contact-service"
+                      required
                       value={formData.service}
                       onChange={handleInputChange}
                       className={`w-full bg-[#0B0B0C] border ${errors.service ? 'border-red-500/50 focus:ring-red-500/50' : 'border-white/10 focus:border-[#D4A43A]/50 focus:ring-[#D4A43A]/50'} rounded-xl px-4 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:ring-1 transition-all appearance-none`}
@@ -388,10 +408,12 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Message</label>
+                    <label htmlFor="contact-message" className="text-sm font-medium text-gray-300">Message</label>
                     <textarea 
                       rows={4}
                       name="message"
+                      id="contact-message"
+                      required
                       value={formData.message}
                       onChange={handleInputChange}
                       className={`w-full bg-[#0B0B0C] border ${errors.message ? 'border-red-500/50 focus:ring-red-500/50' : 'border-white/10 focus:border-[#D4A43A]/50 focus:ring-[#D4A43A]/50'} rounded-xl px-4 py-3 text-[#D4A43A] font-medium font-body focus:outline-none focus:ring-1 transition-all placeholder:text-gray-600 placeholder:font-normal resize-none`}
@@ -400,13 +422,15 @@ const Contact = () => {
                     {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
                   </div>
 
-                  <button 
+                  {(canSubmit || sending) ? <button
                     type="submit" 
                     disabled={sending}
                     className="w-full h-12 rounded-xl bg-[#D4A43A] text-sm font-semibold text-[#0B0B0C] hover:bg-[#E7C46A] transition-all shadow-[0_0_20px_rgba(212,164,58,0.2)] disabled:opacity-50"
                   >
                     {sending ? "Sending..." : "Send Message"}
-                  </button>
+                  </button> : (
+                    <p className="text-sm text-gray-400">Complete all fields to send your message.</p>
+                  )}
                 </form>
               </div>
             </div>

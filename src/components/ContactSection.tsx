@@ -1,5 +1,6 @@
 import { useInView } from "@/hooks/useInView";
-import { Phone, Send, CheckCircle2, MessageSquare } from "lucide-react";
+import { Mail, Send, CheckCircle2, MessageSquare } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -87,7 +88,7 @@ export const ContactSection = () => {
       );
 
       // 2. Prepare WhatsApp URL
-      const phoneNumber = "917499147597";
+      const phoneNumber = "919518771543";
       const waMessage = `Hello Web Mantu! 🚀%0A%0AI just saw your portfolio and I am interested in your services.%0A%0A*Project Inquiry Details:*%0A👤 *Name:* ${formData.name}%0A📧 *Email:* ${formData.email}%0A📞 *Contact:* ${userPhone}%0A💬 *Message:* ${formData.message}%0A%0ALooking forward to hearing from you!`;
       const url = `https://wa.me/${phoneNumber}?text=${waMessage}`;
       setWhatsappUrl(url);
@@ -108,58 +109,48 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-20 relative bg-[#0B0B0C]" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        <div
-          className={`text-center max-w-2xl mx-auto mb-8 md:mb-12 ${isInView ? "opacity-100 animate-fade-up" : "opacity-0"
-            }`}
-        >
-          <span className="text-[#D4A43A] font-medium font-display text-sm uppercase tracking-[0.14em]">
-            Get in Touch
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 mb-4 text-white">
-            Let's <span className="bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] bg-clip-text text-transparent">Connect</span>
+    <section id="contact" aria-labelledby="contact-heading" className="relative scroll-mt-28 bg-[#0B0B0C] py-12 md:py-20" ref={ref}>
+      <div className="relative mx-auto grid max-w-7xl items-start gap-8 px-6 md:px-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-12 lg:px-16">
+        <div className="lg:pt-8">
+          <h2 id="contact-heading" className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl xl:text-5xl">
+            Let's Talk About <span className="text-[#E7C46A]">Your Business</span>
           </h2>
-          <p className="text-[#B9B1A4] font-sans text-base mb-4">
-            Have a project in mind? We'd love to hear from you. Let's create
-            something amazing together.
+          <p className="mt-5 max-w-lg font-sans text-base leading-relaxed text-[#B9B1A4] sm:text-lg">
+            Tell us what you'd like to improve. Whether you need a new website, want to automate a process or improve your SEO, or are looking to create UGC videos, we can help.
           </p>
-          <div className="flex justify-center">
-            <a
-              href="https://wa.me/917499147597"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95"
-              aria-label="WhatsApp Me"
-            >
-              <div className="relative w-16 h-16 md:w-20 md:h-20 whatsapp-btn-pulse">
-                <img
-                  src="/Logo/whatapp icon.png"
-                  alt="WhatsApp"
-                  className="w-full h-full object-contain drop-shadow-lg"
-                />
-              </div>
-              <span className="text-lg font-medium text-[#25D366] opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                Let's Connect on WhatsApp
-              </span>
+          <p className="mt-3 font-sans text-base leading-relaxed text-[#B9B1A4] sm:text-lg">
+            Not sure where to start? We'll help you figure out the next step.
+          </p>
+          <a
+            href="https://wa.me/919518771543"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-md font-sans text-sm font-semibold text-[#25D366] hover:text-[#65E68F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366]"
+          >
+            <FaWhatsapp size={20} aria-hidden="true" />
+            Prefer to chat? Message us on WhatsApp
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-sm text-[#B9B1A4]">
+            <Mail size={17} aria-hidden="true" />
+            Prefer email?
+            <a href="mailto:info@webmantu.com" className="rounded-sm font-semibold text-[#E7C46A] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E7C46A]">
+              info@webmantu.com
             </a>
-          </div>
+          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className={`${isInView ? "opacity-100 animate-fade-up" : "opacity-0"}`}>
-            <div className="relative p-[1px] rounded-[1.5rem] group overflow-hidden shadow-2xl">
-              {/* Elegant Border Sweep Effect (Hover) */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] aspect-square bg-[conic-gradient(from_0deg,transparent_0_340deg,#D4A43A_360deg)] animate-border-spin opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              
-              <form onSubmit={handleSubmit} noValidate className="relative rounded-3xl border border-[#D4A43A]/25 bg-[#12100D] p-5 sm:p-8 md:p-10 text-[#F5F2EA]">
+        <div className={`min-w-0 ${isInView ? "opacity-100 motion-safe:animate-fade-up" : ""}`}>
+          <div className="group relative isolate overflow-hidden rounded-[1.5625rem] p-px">
+            <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[220%] -translate-x-1/2 -translate-y-1/2">
+              <div className="h-full w-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_310deg,#D4A43A_352deg,#F7DE9D_359deg,transparent_360deg)] opacity-0 transition-opacity duration-300 motion-safe:group-hover:animate-border-spin motion-safe:group-hover:opacity-100" />
+            </div>
+              <form onSubmit={handleSubmit} noValidate className="relative rounded-3xl border border-[#D4A43A]/25 bg-[#191612] p-5 sm:p-8 text-[#F5F2EA]">
                 <div className="mb-6 border-b border-[#D4A43A]/15 pb-6">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#D4A43A]">Your next chapter starts here</p>
-                  <h3 className="font-display text-2xl font-bold md:text-3xl">Tell us about your project.</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#B9B1A4]">Share what you have in mind. We’ll help you plan the next step.</p>
+                  <h3 className="font-display text-2xl font-bold md:text-3xl">Tell Us About Your Project</h3>
                 </div>
                 {Object.values(errors).some(Boolean) && <p role="alert" className="mb-5 rounded-lg border border-red-400/30 bg-red-400/10 p-3 text-sm text-red-300">Please check the highlighted fields below.</p>}
-                <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+                <div className="grid gap-5 xl:grid-cols-2 xl:gap-6">
                   <div className="space-y-5">
                     <div>
                       <label htmlFor="enquiry-name" className="mb-2 block text-sm font-medium">Full name <span className="text-[#D4A43A]">*</span></label>
@@ -185,16 +176,15 @@ export const ContactSection = () => {
                   </div>
                   <div className="flex min-w-0 flex-col">
                     <label htmlFor="enquiry-message" className="mb-2 block text-sm font-medium">Project details <span className="text-[#D4A43A]">*</span></label>
-                    <Textarea id="enquiry-message" name="message" required value={formData.message} onChange={handleInputChange} placeholder="What does your business do, and what would you like us to build or improve?" aria-invalid={!!errors.message} aria-describedby={errors.message ? 'enquiry-message-error' : undefined} className="min-h-[140px] flex-1 resize-y rounded-xl border-[#3A3023] bg-[#090909] px-4 py-3 text-base leading-7 text-[#F5F2EA] placeholder:text-[#82796B] focus-visible:ring-[#D4A43A]/60 md:min-h-[240px]" />
+                    <Textarea id="enquiry-message" name="message" required value={formData.message} onChange={handleInputChange} placeholder="What does your business do, and what would you like us to build or improve?" aria-invalid={!!errors.message} aria-describedby={errors.message ? 'enquiry-message-error' : undefined} className="min-h-[140px] flex-1 resize-y rounded-xl border-[#3A3023] bg-[#090909] px-4 py-3 text-base leading-7 text-[#F5F2EA] placeholder:text-[#82796B] focus-visible:ring-[#D4A43A]/60 xl:min-h-[240px]" />
                     {errors.message && <p id="enquiry-message-error" className="mt-1 text-xs text-red-300">{errors.message}</p>}
                   </div>
                 </div>
                 <div className="mt-6 border-t border-[#D4A43A]/15 pt-6">
-                  <Button type="submit" disabled={sending} className="h-12 w-full gap-2 rounded-xl bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] px-4 text-sm font-semibold text-[#16120E] hover:brightness-110 sm:text-base"><Send size={17} />{sending ? 'Sending your enquiry…' : 'Get a Free Consultation'}</Button>
+                  <Button type="submit" disabled={sending} className="h-12 w-full gap-2 rounded-xl bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] px-4 text-sm font-semibold text-[#16120E] hover:brightness-110 sm:text-base"><Send size={17} />{sending ? 'Sending your enquiry…' : 'Request a Free Consultation'}</Button>
                   <p className="mt-3 text-center text-xs leading-5 text-[#B9B1A4]">We’ll use your details to respond to your enquiry. <a href="/privacy-policy" className="text-[#E7C46A] underline underline-offset-2">Privacy policy</a></p>
                 </div>
               </form>
-            </div>
           </div>
         </div>
       </div>

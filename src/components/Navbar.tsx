@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { gsap } from "gsap";
-import { KeyRound, Menu, X } from "lucide-react";
+import { ArrowUpRight, KeyRound, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
+import "./NavbarBrand.css";
+
+const brandLogo = "/Logo/WEBMANTU DIGITAL.png";
 
 export const navLinks = [
   { name: "About Us", href: "/about-us" },
@@ -31,25 +33,25 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRatiosRef = useRef<Record<string, number>>({});
-  const navRef = useRef<HTMLElement | null>(null);
-  const [menuTop, setMenuTop] = useState(0);
+  const mobileMenuRef = useRef<HTMLDialogElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (!isOpen) return;
+    const dialog = mobileMenuRef.current;
+    if (!isOpen || !dialog) return;
+    dialog.showModal();
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeAtDesktop = () => { if (desktop.matches) setIsOpen(false); };
+    desktop.addEventListener("change", closeAtDesktop);
     return () => {
+      desktop.removeEventListener("change", closeAtDesktop);
+      dialog.close();
       document.body.style.overflow = prevOverflow;
     };
   }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    const rect = navRef.current?.getBoundingClientRect();
-    setMenuTop(rect ? rect.bottom : 0);
-  }, [isOpen, scrolled]);
 
   const handleNavClick = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     const targetHref = href.startsWith("#") ? `/${href}` : href;
@@ -92,7 +94,8 @@ export const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -144,72 +147,9 @@ export const Navbar = () => {
     if (id) setActiveSection(id);
   }, []);
 
-  useEffect(() => {
-    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>(".nav-hover"));
-    const circles = new Map<HTMLAnchorElement, HTMLDivElement>();
-    const handlers = new Map<HTMLAnchorElement, { enter: (e: MouseEvent) => void; leave: (e: MouseEvent) => void; move: (e: MouseEvent) => void }>();
-
-    const onEnter = (el: HTMLAnchorElement) => {
-      let circle = circles.get(el);
-      if (!circle) {
-        circle = document.createElement("div");
-        circle.className = "nav-hover-circle";
-        el.appendChild(circle);
-        circles.set(el, circle);
-      }
-      gsap.killTweensOf(circle);
-      gsap.to(circle, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" });
-    };
-
-    const onLeave = (el: HTMLAnchorElement) => {
-      const circle = circles.get(el);
-      if (!circle) return;
-      gsap.to(circle, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.out" });
-    };
-
-    const onMove = (el: HTMLAnchorElement, e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const circle = circles.get(el);
-      if (!circle) return;
-      circle.style.left = `${x}px`;
-      circle.style.top = `${y}px`;
-    };
-
-    links.forEach((el) => {
-      const enter = (e: MouseEvent) => { onEnter(el); };
-      const leave = (e: MouseEvent) => { onLeave(el); };
-      const move = (e: MouseEvent) => { onMove(el, e); };
-      handlers.set(el, { enter, leave, move });
-      el.addEventListener("mouseenter", enter);
-      el.addEventListener("mouseleave", leave);
-      el.addEventListener("mousemove", move);
-    });
-
-    return () => {
-      links.forEach((el) => {
-        const h = handlers.get(el);
-        if (h) {
-          el.removeEventListener("mouseenter", h.enter);
-          el.removeEventListener("mouseleave", h.leave);
-          el.removeEventListener("mousemove", h.move);
-        }
-        const circle = circles.get(el);
-        if (circle) {
-          gsap.killTweensOf(circle);
-          circle.remove();
-          circles.delete(el);
-        }
-      });
-      handlers.clear();
-    };
-  }, []);
-
   return (
     <nav
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass py-4" : "py-6"
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,padding,box-shadow] duration-300 motion-reduce:transition-none ${scrolled ? "border-[#383029] bg-[#171513] py-2 shadow-lg" : "border-transparent bg-transparent py-6"
         }`}
     >
       <div
@@ -218,39 +158,31 @@ export const Navbar = () => {
       />
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a
-            href="/"
-            className="nav-hover relative overflow-hidden inline-flex items-center transition-transform duration-300 ease-out hover:scale-[1.05] active:scale-[0.98]"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.assign("/");
-            }}
-          >
-            <img
-              src="/Logo/WEBMANTU DIGITAL.png"
-              alt="Web Mantu"
-              className={`h-16 md:h-18 w-auto object-contain select-none`}
-              draggable={false}
-            />
-          </a>
+          <div className="navbar-brand" data-compact={scrolled}>
+            <a className="navbar-brand__home" href="/" aria-label="WebMantu Digital home">
+              <img className="navbar-brand__mark" src={brandLogo} alt="" draggable={false} />
+              <img className="navbar-brand__wordmark" src={brandLogo} alt="" draggable={false} />
+            </a>
+          </div>
 
           <div className="hidden xl:flex items-center gap-1 2xl:gap-4">
             {navLinks.map((link) => {
-              const sectionId = link.href.startsWith("/#") ? link.href.slice(2) : "";
+              const active = isLinkActive(link.href);
               return (
               <div key={link.name} className="relative group">
                 <a
                   href={link.href}
                   onClick={handleNavClick(link.href)}
-                  className={`relative px-3 py-1.5 rounded-full text-sm font-poppins font-semibold transition-colors nav-hover flex items-center gap-1.5 ${isLinkActive(link.href) ? "text-[#E7C46A]" : "text-[#B9B1A4] hover:text-[#E7C46A]"}`}
+                  aria-current={active ? (link.href.startsWith("/#") ? "location" : "page") : undefined}
+                  className={`group/navlink relative border px-3 py-1.5 rounded-full text-sm font-poppins font-semibold transition-colors flex items-center justify-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7C46A] ${active ? "border-[#4A3821] bg-[#2A2116] text-[#E7C46A]" : "border-transparent text-[#B9B1A4] hover:text-[#F5F2EA]"}`}
                 >
                   <span className="relative z-10 whitespace-nowrap">{link.name}</span>
                   {link.dropdown && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 group-hover:rotate-180 transition-transform duration-300 opacity-70"><path d="m6 9 6 6 6-6"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 motion-safe:group-hover:rotate-180 motion-safe:transition-transform duration-300 opacity-70"><path d="m6 9 6 6 6-6"/></svg>
                   )}
                   <span
-                    aria-hidden
-                    className={`pointer-events-none absolute inset-0 rounded-full border border-[#2A221A] bg-gradient-to-r from-[#D4A43A]/10 via-[#7A3E2C]/10 to-[#D4A43A]/10 shadow-lg transition-all duration-300 ${isLinkActive(link.href) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"} group-hover:opacity-100`}
+                    aria-hidden="true"
+                    className="pointer-events-none absolute bottom-[3px] left-1/2 h-0.5 w-8 -translate-x-1/2 scale-x-0 rounded-full bg-[#E7C46A] opacity-0 group-hover/navlink:scale-x-100 group-hover/navlink:opacity-100 motion-safe:transition-[transform,opacity] motion-safe:duration-200 motion-safe:ease-out"
                   />
                 </a>
                 
@@ -298,60 +230,61 @@ export const Navbar = () => {
             </a>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative w-12 h-12 flex items-center justify-center rounded-full border border-[#2A221A] bg-[#16120E]/80 hover:bg-[#1E1812] transition-colors focus:outline-none"
-              aria-label="Toggle menu"
+              type="button"
+              onClick={() => setIsOpen(true)}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#2A221A] bg-[#16120E]/80 text-[#E7C46A] transition-colors hover:bg-[#1E1812] focus-visible:outline focus-visible:outline-[#E7C46A]"
+              aria-label="Open navigation menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+              aria-haspopup="dialog"
             >
-              <div className="w-5 h-4 relative">
-                <span className={`w-full h-[2px] bg-[#E7C46A] rounded-full absolute left-0 transition-all duration-300 ease-in-out ${isOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0'}`} />
-                <span className={`w-full h-[2px] bg-[#E7C46A] rounded-full absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0 translate-x-3' : 'opacity-100'}`} />
-                <span className={`w-full h-[2px] bg-[#E7C46A] rounded-full absolute left-0 transition-all duration-300 ease-in-out ${isOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-0'}`} />
-              </div>
+              <Menu size={23} aria-hidden="true" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen &&
-        createPortal(
-          <>
-            <div
-              className="xl:hidden fixed inset-0 z-[9998] bg-black/60 backdrop-blur-md animate-fade-in"
-              onClick={() => setIsOpen(false)}
-              aria-hidden
-            />
-            <div
-              className="xl:hidden fixed left-0 right-0 z-[9999] glass border-b border-white/10 shadow-2xl rounded-b-3xl max-h-[calc(100dvh-6rem)] overflow-y-auto animate-fade-up"
-              style={{ top: menuTop }}
-            >
-              <div className="flex flex-col gap-2 border-x border-b border-[#2A221A] bg-[#0F0C09]/95 p-6 backdrop-blur-xl">
-                {navLinks.map((link, idx) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={handleNavClick(link.href)}
-                    className={`group flex items-center justify-center rounded-2xl border p-4 transition-all duration-300 ${isLinkActive(link.href) ? "border-[#2A221A] bg-[#1E1812]" : "border-transparent hover:border-[#2A221A] hover:bg-[#1E1812]"}`}
-                    style={{ animationDelay: `${idx * 0.1}s` }}
-                  >
-                    <span className={`text-lg font-poppins font-semibold transition-colors text-center ${isLinkActive(link.href) ? "text-[#E7C46A]" : "text-[#D0C6B7] group-hover:text-[#E7C46A]"}`}>
-                      {link.name}
-                    </span>
-                  </a>
-                ))}
-                <div className="mt-4 border-t border-[#2A221A] pt-6">
-                  <Button
-                    className="h-14 w-full rounded-2xl border border-[#2A221A] bg-[#D4A43A] font-poppins text-lg font-bold text-[#0B0B0C] transition-all hover:bg-[#E7C46A]"
-                    asChild
-                  >
-                    <a href="/#contact" onClick={handleNavClick("/#contact")}>Let's Talk</a>
-                  </Button>
-                </div>
+      {createPortal(
+        <dialog
+          ref={mobileMenuRef}
+          id="mobile-navigation"
+          aria-labelledby="mobile-navigation-title"
+          onCancel={(event) => { event.preventDefault(); setIsOpen(false); }}
+          onClick={(event) => { if (event.target === event.currentTarget) setIsOpen(false); }}
+          className="fixed inset-y-0 left-auto right-0 m-0 h-[100dvh] max-h-none w-full max-w-[26rem] overflow-hidden border-l border-[#4A3821] bg-[#16120E] p-0 text-[#F5F2EA] shadow-2xl backdrop:bg-black/65 sm:right-0"
+        >
+          <div className="flex h-full flex-col">
+            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-[#3B2D1E] px-5 py-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#E7C46A]">WebMantu Digital</p>
+                <h2 id="mobile-navigation-title" className="mt-1 font-poppins text-xl font-bold">Menu</h2>
               </div>
+              <button type="button" autoFocus onClick={() => setIsOpen(false)} aria-label="Close navigation menu" className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#594226] bg-[#241B11] text-[#E7C46A] hover:bg-[#352818] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E7C46A]">
+                <X size={23} aria-hidden="true" />
+              </button>
             </div>
-          </>,
-          document.body
-        )}
+            <nav aria-label="Mobile links" className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
+              {navLinks.map((link) => {
+                const active = isLinkActive(link.href);
+                return (
+                  <a key={link.name} href={link.href} onClick={handleNavClick(link.href)}
+                    aria-current={active ? (link.href.startsWith("/#") ? "location" : "page") : undefined}
+                    className={`flex min-h-12 items-center justify-between gap-3 rounded-lg border-b border-[#35291D] px-3 py-2 font-poppins text-sm font-semibold focus-visible:outline focus-visible:outline-[#E7C46A] ${active ? "bg-[#2A2116] text-[#E7C46A]" : "text-[#E5DCCF] hover:bg-[#241B11]"}`}>
+                    {link.name}
+                    <ArrowUpRight size={15} className="text-[#C79B52]" aria-hidden="true" />
+                  </a>
+                );
+              })}
+            </nav>
+            <div className="shrink-0 border-t border-[#3B2D1E] p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+              <Button className="h-12 w-full rounded-xl bg-[#D4A43A] font-poppins font-bold text-[#0B0B0C] hover:bg-[#E7C46A]" asChild>
+                <a href="/#contact" onClick={handleNavClick("/#contact")}>Let's Talk</a>
+              </Button>
+            </div>
+          </div>
+        </dialog>,
+        document.body
+      )}
     </nav>
   );
 };

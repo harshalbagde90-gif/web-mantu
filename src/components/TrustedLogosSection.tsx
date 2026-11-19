@@ -63,14 +63,14 @@ export const TrustedLogosSection = () => {
   ];
 
   return (
-    <section className="bg-[#080808] border-b border-[#2A221A]/30 py-16 md:py-24 overflow-hidden relative">
+    <section className="bg-[#080808] border-b border-[#2A221A]/30 py-8 md:py-12 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-b from-[#D4A43A]/[0.02] to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         
         {/* Row 1: Platforms */}
-        <div className="mb-16">
-          <p className="text-center text-[#B9B1A4]/80 text-sm md:text-base font-sans mb-8 tracking-wide font-medium">
+        <div className="mb-8">
+          <p className="text-center text-[#B9B1A4]/80 text-sm md:text-base font-sans mb-4 tracking-wide font-medium">
             INTEGRATED WITH PLATFORMS TRUSTED BY BILLIONS
           </p>
           <LogoMarqueeRow items={platforms} />
@@ -78,7 +78,7 @@ export const TrustedLogosSection = () => {
 
         {/* Row 2: Production Tools */}
         <div>
-          <p className="text-center text-[#B9B1A4]/80 text-sm md:text-base font-sans mb-8 tracking-wide font-medium">
+          <p className="text-center text-[#B9B1A4]/80 text-sm md:text-base font-sans mb-4 tracking-wide font-medium">
             CRAFTED WITH PROFESSIONAL-GRADE CONTENT TOOLS
           </p>
           <LogoMarqueeRow items={tools} reverse={true} />

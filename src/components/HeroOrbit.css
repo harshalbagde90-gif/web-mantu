@@ -1,0 +1,195 @@
+.wm-orbit {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 35rem;
+  aspect-ratio: 1.22;
+  margin-inline: auto;
+  background: radial-gradient(ellipse at center, #9a68202e, transparent 68%);
+}
+
+.wm-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle, #c58d4655 1px, transparent 1.6px) 0 0 / 18px 18px;
+  mask-image: radial-gradient(ellipse, #000 12%, transparent 72%);
+}
+
+.wm-orbit__path {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 78%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(-24deg) scaleY(.55);
+}
+
+.wm-orbit__path::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #c697585c;
+  border-radius: 50%;
+}
+
+.wm-orbit__runner {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.wm-orbit__light {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 7px;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: #fff1c9;
+  box-shadow: 0 0 8px 3px #e5af58aa;
+}
+
+.wm-orbit__light--opposite { top: 100%; width: 6px; }
+
+.wm-orbit__path--inner {
+  width: 65%;
+  transform: translate(-50%, -50%) rotate(31deg) scaleY(.68);
+  opacity: .65;
+}
+
+.wm-orbit__emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid #d1a15b;
+  background: linear-gradient(145deg, #e5bf7d, #755027 27%, #eac98d 52%, #402b17 84%);
+  box-shadow: 0 16px 38px #0008, 0 0 55px #b3823426;
+}
+
+.wm-orbit__emblem::before {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  border: 1px solid #ac7a446b;
+  border-radius: inherit;
+  background: radial-gradient(circle at 28% 15%, #483620, #1a130d 65%, #110e0a);
+}
+
+.wm-orbit__crest {
+  position: absolute;
+  inset: 17%;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.wm-orbit__crest img {
+  position: absolute;
+  top: 50%;
+  left: -22%;
+  width: 500%;
+  max-width: none;
+  transform: translateY(-50%);
+  filter: sepia(1) saturate(1.55);
+}
+
+.wm-orbit__crest .wm-orbit__crest-glow {
+  opacity: 0;
+  mix-blend-mode: screen;
+  filter: grayscale(1) brightness(1.65) blur(4px);
+  pointer-events: none;
+}
+
+.wm-orbit__label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .52rem .72rem;
+  border: 1px solid #aa794951;
+  border-radius: .65rem;
+  background: #18130e;
+  color: #f4e4c9;
+  box-shadow: 0 8px 22px #0007;
+  font-size: clamp(.69rem, 2vw, .85rem);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.wm-orbit__label svg { color: #e7bd77; }
+.wm-orbit__label:focus-visible { outline: 2px solid #e7bd77; outline-offset: 3px; }
+.wm-orbit__link-arrow { flex-shrink: 0; opacity: .65; }
+.wm-orbit__label:is(:hover, :focus-visible) .wm-orbit__link-arrow { opacity: 1; }
+.wm-orbit__label--1 { left: 7%; top: 19%; }
+.wm-orbit__label--2 { right: 1%; top: 26%; }
+.wm-orbit__label--3 { left: 7%; bottom: 24%; }
+.wm-orbit__label--4 { right: 3%; bottom: 16%; }
+
+.wm-orbit__label--lit {
+  border-color: #e7bd77;
+  background: #2c2115;
+  color: #fff6e5;
+  box-shadow: 0 0 22px #e7bd7745, inset 0 0 12px #e7bd7715;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wm-orbit__label:hover {
+    border-color: #e7bd77;
+    background: #292016;
+    color: #fff6e5;
+    box-shadow: 0 8px 25px #0009, 0 0 22px #e7bd7730;
+  }
+
+  .wm-orbit__emblem:hover .wm-orbit__crest img:not(.wm-orbit__crest-glow) {
+    filter: grayscale(1) brightness(1.25);
+  }
+
+  .wm-orbit__emblem:hover .wm-orbit__crest-glow { opacity: .85; }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .wm-orbit__label { transition: transform .22s ease, border-color .22s ease, background-color .22s ease, color .22s ease, box-shadow .22s ease; }
+  .wm-orbit__label:hover { transform: translateY(-3px); }
+  .wm-orbit__link-arrow { transition: transform .22s ease, opacity .22s ease; }
+  .wm-orbit__label:is(:hover, :focus-visible) .wm-orbit__link-arrow { transform: translate(2px, -2px); }
+  .wm-orbit__crest img { transition: filter .25s ease, opacity .25s ease; }
+}
+
+@media (max-width: 639px) {
+  .wm-orbit {
+    max-width: 23rem;
+    aspect-ratio: 1.12;
+  }
+
+  .wm-orbit__emblem { width: 35%; }
+  .wm-orbit__path { width: 88%; }
+  .wm-orbit__path--inner { width: 74%; }
+  .wm-orbit__label {
+    min-height: 36px;
+    gap: .3rem;
+    padding: .35rem .5rem;
+    font-size: .68rem;
+  }
+
+  .wm-orbit__label svg { width: .75rem; height: .75rem; }
+  .wm-orbit__label .wm-orbit__link-arrow { width: .625rem; height: .625rem; }
+  .wm-orbit__label--1 { left: 0; top: 13%; }
+  .wm-orbit__label--2 { right: 0; top: 13%; }
+  .wm-orbit__label--3 { left: 0; bottom: 13%; }
+  .wm-orbit__label--4 { right: 0; bottom: 13%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wm-orbit__runner { animation: wm-orbit-travel 18s linear infinite; }
+  .wm-orbit__path--inner .wm-orbit__runner { animation: wm-orbit-travel 23s -7s linear infinite reverse; }
+  .wm-orbit__label { transition: transform .22s ease, border-color .12s ease-out, background-color .12s ease-out, color .12s ease-out, box-shadow .12s ease-out; }
+}
+
+@keyframes wm-orbit-travel {
+  to { transform: rotate(1turn); }
+}

@@ -1,89 +1,85 @@
+import { Headset, MessageSquareText, MousePointerClick, Layers3 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
-import { Handshake, HeartHandshake, LineChart, Globe } from "lucide-react";
-import trustImage from "../assets/trust_section_visual.png";
+import "./TrustSection.css";
 
 const trustPoints = [
   {
-    icon: <HeartHandshake className="w-6 h-6" />,
-    title: "Dedicated Support System",
-    description: "We don't just build websites and leave. We provide continuous support and maintenance to ensure your digital presence keeps growing without technical hurdles."
+    icon: Headset,
+    title: "Ongoing Client Support",
+    description: "We stay by your side after delivery, supporting your business as it grows.",
   },
   {
-    icon: <Handshake className="w-6 h-6" />,
-    title: "Honesty & True Partnership",
-    description: "No 'deliver and disappear' mindset. We work with complete transparency and honesty, aiming to be your long-term growth partner rather than just a one-time vendor."
+    icon: MousePointerClick,
+    title: "Stronger Market Positioning",
+    description: "We help customers find you, understand what you offer, and see why they should choose you over the competition.",
   },
   {
-    icon: <LineChart className="w-6 h-6" />,
-    title: "Growth & Conversion Strategy",
-    description: "A website alone is not enough. We provide actionable strategies to drive targeted traffic to your site and convert those visitors into high-paying clients."
+    icon: Layers3,
+    title: "Services That Work Together",
+    description: "We bring your website, SEO, content, and AI automation together to support your business goals.",
   },
   {
-    icon: <Globe className="w-6 h-6" />,
-    title: "Complete Digital Ecosystem",
-    description: "From Google Business Profile optimization to advanced SEO and automation, we set up the complete digital infrastructure required to scale your business."
-  }
+    icon: MessageSquareText,
+    title: "Focused on Your Business Growth",
+    description: "We believe in growing with you. We focus on work that helps your business keep growing, not just on getting the project delivered.",
+  },
+];
+
+const steps = [
+  { label: "Understand Your Business & Customer Needs", height: "h-[34%]" },
+  { label: "Plan, Build & Implement", height: "h-[43%]" },
+  { label: "Use Modern Techniques & AI as Needed", height: "h-[53%]" },
+  { label: "Analysis & Continuous Improvement", height: "h-[65%]" },
 ];
 
 export const TrustSection = () => {
-  const { ref, isInView } = useInView();
-
+  const { ref, isInView } = useInView(0.25);
   return (
-    <section id="why-us" className="py-20 relative bg-[#0B0B0C] overflow-hidden" ref={ref}>
-      <div className="max-w-7xl relative z-10 mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Left: Image Placeholder / Visual */}
-          <div className={`hidden md:block relative h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-[#2A221A] bg-[#0F0C09] shadow-[0_0_50px_rgba(0,0,0,0.5)] ${isInView ? "animate-fade-in opacity-100" : "opacity-0"}`}>
-            <img 
-              src={trustImage} 
-              alt="WebMantu Digital Growth" 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-            {/* Subtle glow effect around image container */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#D4A43A]/20 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
-            <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 pointer-events-none" />
+  <section ref={ref} id="why-us" aria-labelledby="trust-heading" className="scroll-mt-28 bg-[#F7F4EE] py-12 text-[#201B16] md:py-20">
+    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+      <header className="mx-auto mb-8 max-w-3xl text-center md:mb-12">
+        <h2 id="trust-heading" className="text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Why Work with <span className="text-[#795B27]">WebMantu?</span>
+        </h2>
+      </header>
+      <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-10">
+        <figure className="relative min-w-0 overflow-hidden rounded-3xl border border-[#493720] bg-[#191613] p-5 text-[#F5F2EA] sm:p-8 lg:p-9">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,#49351D,transparent_66%)]" />
+          <figcaption className="relative text-center font-display text-2xl font-semibold sm:text-3xl">Our Process</figcaption>
+          <div aria-hidden="true" className={`relative mt-3 grid h-[clamp(9rem,23vw,15rem)] grid-cols-4 items-end gap-2 sm:gap-3 border-b border-[#E7C46A]/30 px-2 ${isInView ? "trust-steps-in-view" : ""}`}>
+            <svg viewBox="0 0 400 240" preserveAspectRatio="none" className="trust-growth-arrow pointer-events-none absolute inset-0 h-full w-full" fill="none">
+              <path d="M18 130 C61 139 82 139 111 112 S170 100 200 89 S242 58 274 53 S332 43 378 16 M345 20 L378 16 L366 47" stroke="#E7C46A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+            </svg>
+            {steps.map(({ label, height }, index) => (
+              <div key={label} className={`${height} relative flex items-start justify-center rounded-t-lg border border-b-0 border-[#E7C46A]/30 bg-gradient-to-t from-[#3D2D1B] to-[#8A6533] pt-2 font-sans text-sm font-semibold text-[#FFF1CE]`}>
+                0{index + 1}
+              </div>
+            ))}
           </div>
-
-          {/* Right: Content & List */}
-          <div className="flex flex-col">
-            <div className={`mb-10 text-left ${isInView ? "animate-fade-up opacity-100" : "opacity-0"}`}>
-              <span className="text-[#D4A43A] font-medium font-display text-sm uppercase tracking-[0.14em]">
-                The WebMantu Standard
+          <ol className="relative mt-5 grid gap-3">
+            {steps.map(({ label }, index) => (
+              <li key={label} className="flex gap-3 font-sans text-sm leading-snug">
+                <span aria-hidden="true" className="text-[#E7C46A]">0{index + 1}</span>
+                <strong>{label}</strong>
+              </li>
+            ))}
+          </ol>
+        </figure>
+        <ul className="divide-y divide-[#DED5C5] overflow-hidden rounded-2xl border border-[#DED5C5] bg-white/70 px-5 sm:px-6">
+          {trustPoints.map(({ icon: Icon, title, description }) => (
+            <li key={title} className="flex items-start gap-4 py-5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F2E8D4] text-[#795B27]" aria-hidden="true">
+                <Icon size={19} />
               </span>
-              <h2 className="mt-2 mb-4 font-display text-3xl font-bold leading-tight md:text-4xl text-white">
-                Why Businesses 
-                <span className="bg-gradient-to-r from-[#D4A43A] to-[#E7C46A] bg-clip-text text-transparent block mt-1">Trust WebMantu</span>
-              </h2>
-              <p className="text-[#B9B1A4] font-sans text-base md:text-lg leading-relaxed max-w-lg">
-                We believe in complete transparency, honest partnerships, and strategic execution to genuinely grow your business.
-              </p>
-            </div>
-            
-            <div className="flex flex-col gap-8">
-              {trustPoints.map((point, index) => (
-                <div 
-                  key={index} 
-                  className={`flex items-start gap-5 group ${isInView ? "animate-fade-up opacity-100" : "opacity-0"}`}
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl border border-[#2A221A] bg-[#16120E] text-[#D4A43A] transition-all duration-300 group-hover:scale-110 group-hover:border-[#D4A43A]/50 group-hover:bg-[#1E1812] group-hover:shadow-[0_0_20px_rgba(212,164,58,0.25)]">
-                    {point.icon}
-                  </div>
-                  <div className="flex flex-col pt-1">
-                    <h3 className="text-[1.15rem] font-display font-semibold text-[#F5F2EA] mb-2">{point.title}</h3>
-                    <p className="text-[#B9B1A4] font-sans leading-relaxed text-[0.95rem]">
-                      {point.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
+              <div>
+                <h3 className="font-display text-base font-semibold leading-snug sm:text-lg">{title}</h3>
+                <p className="mt-1.5 font-sans text-sm leading-relaxed text-[#62584D] sm:text-base">{description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
-

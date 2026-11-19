@@ -1,0 +1,10 @@
+@media (prefers-reduced-motion: no-preference) {
+  .trust-steps-in-view .trust-growth-arrow {
+    animation: trust-arrow-enter 650ms ease-out both;
+  }
+}
+
+@keyframes trust-arrow-enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

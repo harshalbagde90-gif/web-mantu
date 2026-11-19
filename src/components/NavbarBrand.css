@@ -1,0 +1,78 @@
+.navbar-brand {
+  --brand-width: min(12.8rem, 46vw);
+  --brand-motion: 320ms cubic-bezier(.2, .75, .25, 1);
+  display: flex;
+  align-items: center;
+  width: var(--brand-width);
+  min-width: 0;
+  height: 4rem;
+  transition: height var(--brand-motion);
+}
+
+.navbar-brand[data-compact="true"] { height: 2.75rem; }
+
+@media (min-width: 768px) {
+  .navbar-brand { --brand-width: 14.4rem; height: 4.5rem; }
+  .navbar-brand[data-compact="true"] { height: 3.5rem; }
+}
+
+.navbar-brand__home {
+  position: relative;
+  display: block;
+  width: var(--brand-width);
+  min-width: 44px;
+  height: 100%;
+  border-radius: .4rem;
+  transition: width var(--brand-motion);
+}
+
+.navbar-brand__home:focus-visible {
+  outline: 2px solid #e7c46a;
+  outline-offset: 2px;
+}
+
+.navbar-brand__home img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: var(--brand-width);
+  max-width: none;
+  translate: 0 -50%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Split the original artwork at the gap between its emblem and wordmark. */
+.navbar-brand__mark {
+  clip-path: inset(0 75% 0 0);
+}
+
+.navbar-brand__wordmark {
+  clip-path: inset(0 0 0 25%);
+  transition: opacity var(--brand-motion), clip-path var(--brand-motion);
+}
+
+.navbar-brand[data-compact="true"] .navbar-brand__home { width: 25%; }
+.navbar-brand[data-compact="true"] .navbar-brand__wordmark {
+  clip-path: inset(0 75% 0 25%);
+  opacity: 0;
+}
+
+.navbar-brand[data-compact="true"] .navbar-brand__home:focus-visible { width: var(--brand-width); }
+.navbar-brand[data-compact="true"] .navbar-brand__home:focus-visible .navbar-brand__wordmark {
+  clip-path: inset(0 0 0 25%);
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar-brand[data-compact="true"] .navbar-brand__home:hover { width: var(--brand-width); }
+  .navbar-brand[data-compact="true"] .navbar-brand__home:hover .navbar-brand__wordmark {
+    clip-path: inset(0 0 0 25%);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-brand { --brand-motion: 0ms; }
+}

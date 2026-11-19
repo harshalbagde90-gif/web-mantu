@@ -1,7 +1,9 @@
 import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
+import { servicesData } from "@/data/servicesData";
 
 const navLinks = [
-  { name: "About", href: "#about" },
+  { name: "About", href: "/about-us" },
   { name: "Services", href: "#services" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -12,7 +14,7 @@ export const Footer = () => {
   return (
     <footer className="py-12 border-t border-[#D4A43A]/20 bg-[#0B0B0C] mt-16 font-sans">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mb-12">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-[1.4fr_0.8fr_1.15fr_1fr] lg:gap-8 mb-12">
           {/* Brand & Logo */}
           <div className="flex flex-col gap-4">
             <a href="#" className="inline-flex items-center transition-transform duration-300 ease-out hover:scale-[1.05] active:scale-[0.98] w-fit">
@@ -24,7 +26,7 @@ export const Footer = () => {
               />
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              WebMantu is a results-driven Web Agency building intelligent digital experiences, scalable applications, and automations that help businesses generate leads and acquire more clients.
+              WebMantu Digital builds custom websites, automates business processes with AI, and helps you reach more customers through SEO, UGC ads, and video editing.
             </p>
             <div className="flex gap-4 mt-2">
               <a href="https://www.instagram.com/webmantu_digital/" target="_blank" rel="noreferrer" className="p-2 bg-[#16120E] hover:bg-[#D4A43A]/10 hover:text-[#D4A43A] text-muted-foreground border border-transparent hover:border-[#D4A43A]/30 rounded-full transition-all duration-300">
@@ -55,6 +57,21 @@ export const Footer = () => {
             </nav>
           </div>
 
+          <div className="flex flex-col gap-4">
+            <h3 className="font-display text-lg font-semibold text-white">Services</h3>
+            <nav aria-label="Footer services" className="flex flex-col gap-3">
+              {servicesData.map(({ slug, title }) => (
+                <Link
+                  key={slug}
+                  to={`/services/${slug}`}
+                  className="w-fit text-sm text-muted-foreground transition-colors hover:text-[#D4A43A]"
+                >
+                  {title}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
           {/* Contact Info */}
           <div className="flex flex-col gap-4">
             <h3 className="font-display font-semibold text-white text-lg">Contact Us</h3>
@@ -66,9 +83,9 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917499147597" target="_blank" rel="noreferrer" className="group flex items-start gap-3 text-sm text-muted-foreground hover:text-[#D4A43A] transition-colors">
+                <a href="https://wa.me/919518771543" target="_blank" rel="noreferrer" className="group flex items-start gap-3 text-sm text-muted-foreground hover:text-[#D4A43A] transition-colors">
                   <Phone size={16} className="mt-0.5 shrink-0" />
-                  <span>+91 7499147597</span>
+                  <span>+91 9518771543</span>
                 </a>
               </li>
             </ul>

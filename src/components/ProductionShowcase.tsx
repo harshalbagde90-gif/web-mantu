@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight, Monitor, Video, Share2, MapPin, Images, Link2, Mail, FileText, Languages, CreditCard, CalendarClock } from "lucide-react";
 import { liveProjects } from "@/components/ProjectsSection";
 
-const stories = [
+export const stories = [
   {
-    name: "ORA Spa & Wellness", category: "LOCAL BUSINESS · NAGPUR", headline: "A premium wellness experience, brought online.",
+    slug: "ora-spa", name: "ORA Spa & Wellness", category: "LOCAL BUSINESS · NAGPUR", headline: "A premium wellness experience, brought online.",
     business: "A spa and wellness centre in Ganeshpeth, Nagpur, offering relaxation and wellness therapies in a calm, premium setting.",
     goal: "Present the spa’s in-person experience online, make its therapies easy to explore, and give visitors a clear path to enquire.",
     solution: "We brought the website, video shoots and editing, social media account setup and Google Business Profile together into a consistent digital presence.",
@@ -12,7 +13,7 @@ const stories = [
     caption: "A closer look at the space, services and website.",
   },
   {
-    name: "MyVaidyam", category: "MEDICAL TOURISM · AYURVEDA & WELLNESS", headline: "A large-scale gateway to Ayurveda and wellness in India.",
+    slug: "myvaidyam", name: "MyVaidyam", category: "MEDICAL TOURISM · AYURVEDA & WELLNESS", headline: "A large-scale gateway to Ayurveda and wellness in India.",
     business: "A medical tourism platform helping international visitors explore Ayurvedic centres, wellness retreats, treatments and programmes across India.",
     goal: "Bring a large catalogue of centres and treatment information into one navigable website, helping visitors discover options and reach out for guidance.",
     solution: "WebMantu designed and developed the complete website, building dedicated centre pages with imagery and structured information, alongside treatment discovery, directory filters and consultation enquiry paths.",
@@ -20,7 +21,7 @@ const stories = [
     caption: "Homepage, centre directory and a dedicated centre profile—captured from the live website.",
   },
   {
-    name: "NumGuru", category: "NUMEROLOGY · MULTILINGUAL PLATFORM", headline: "A complete numerology report, personalized to you.",
+    slug: "numguru", name: "NumGuru", category: "NUMEROLOGY · MULTILINGUAL PLATFORM", headline: "A complete numerology report, personalized to you.",
     business: "A Pythagorean numerology platform where users enter their name and date of birth to receive a full personalized report with life guidance, special numbers, colours and suggested remedies.",
     goal: "Build a self-service system that turns a name and date of birth into a detailed report, making numerology-based guidance, numbers, colours and suggested remedies easy to explore.",
     solution: "We built a complete Pythagorean numerology reporting experience with multilingual access, an integrated payment and settlement system, and blog automation scheduled to publish two posts each week.",
@@ -31,7 +32,7 @@ const stories = [
 
 const deliveryIcons = [[Monitor, Video, Share2, MapPin], [Monitor, Images, Link2, Mail], [FileText, Languages, CreditCard, CalendarClock]];
 
-const showcaseProjects = [
+export const showcaseProjects = [
   liveProjects[0],
   {
     title: "MyVaidyam", link: "https://myvaidyam.com/",
@@ -42,7 +43,8 @@ const showcaseProjects = [
 
 export function ProductionShowcase() {
   const showcaseRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
+  const [params] = useSearchParams();
+  const [active, setActive] = useState(() => Math.max(0, stories.findIndex((story) => story.slug === params.get("project"))));
   const [image, setImage] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const project = showcaseProjects[active];

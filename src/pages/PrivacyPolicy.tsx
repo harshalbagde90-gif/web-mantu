@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
             </p>
             <ul className="list-none space-y-2">
               <li>Email: info@webmantu.com</li>
-              <li>Phone: +91 7499147597</li>
+              <li>Phone: +91 9518771543</li>
               <li>Address: Indora square, Nagpur, Maharashtra 440017</li>
             </ul>
           </div>
